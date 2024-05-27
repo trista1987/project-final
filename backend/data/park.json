@@ -1,0 +1,255 @@
+[
+    {
+      "nation": "Finland",
+      "name": "Nuuksio National Park",
+      "address": "Nuuksiontie 84, 02820 Espoo, Finland",
+      "rating": 4.6,
+      "opening_hours": "24/7",
+      "parking_info": "Multiple parking areas available near park entrances",
+      "location": {
+        "latitude": 60.3078,
+        "longitude": 24.4995
+      }
+    },
+    {
+      "nation": "Finland",
+      "name": "Urho Kekkonen National Park",
+      "address": "Saariseläntie 1, 99830 Saariselkä, Finland",
+      "rating": 4.7,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at designated areas",
+      "location": {
+        "latitude": 68.4167,
+        "longitude": 27.4167
+      }
+    },
+    {
+      "nation": "Finland",
+      "name": "Koli National Park",
+      "address": "Ylä-Kolintie 39, 83960 Koli, Finland",
+      "rating": 4.7,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at Nature Centre Ukko and other locations",
+      "location": {
+        "latitude": 63.0966,
+        "longitude": 29.8013
+      }
+    },
+    {
+      "nation": "Finland",
+      "name": "Lemmenjoki National Park",
+      "address": "Lemmenjoentie 447, 99870 Inari, Finland",
+      "rating": 4.8,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at the park entrances",
+      "location": {
+        "latitude": 68.7539,
+        "longitude": 25.3167
+      }
+    },
+    {
+      "nation": "Finland",
+      "name": "Oulanka National Park",
+      "address": "Liikasenvaarantie 132, 93900 Kuusamo, Finland",
+      "rating": 4.7,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at visitor centers and trailheads",
+      "location": {
+        "latitude": 66.3700,
+        "longitude": 29.3231
+      }
+    },
+    {
+      "nation": "Finland",
+      "name": "Pallas-Yllästunturi National Park",
+      "address": "Äkäslompolontie 31, 95970 Äkäslompolo, Finland",
+      "rating": 4.7,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at visitor centers and main entrances",
+      "location": {
+        "latitude": 67.5833,
+        "longitude": 24.1500
+      }
+    },
+    {
+      "nation": "Finland",
+      "name": "Repovesi National Park",
+      "address": "Kouvola, Finland",
+      "rating": 4.8,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at park entrances",
+      "location": {
+        "latitude": 61.1850,
+        "longitude": 26.9183
+      }
+    },
+    {
+      "nation": "Finland",
+      "name": "Pyhä-Luosto National Park",
+      "address": "Luontotie 1, 98530 Pyhätunturi, Finland",
+      "rating": 4.7,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at visitor centers and trailheads",
+      "location": {
+        "latitude": 67.0646,
+        "longitude": 26.9300
+      }
+    },
+    {
+      "nation": "Finland",
+      "name": "Seitseminen National Park",
+      "address": "Seitsemisentie 110, 39580 Länsi-Aure, Finland",
+      "rating": 4.6,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at visitor centers and main entrances",
+      "location": {
+        "latitude": 61.8522,
+        "longitude": 23.5226
+      }
+    },
+    {
+      "nation": "Finland",
+      "name": "Hossa National Park",
+      "address": "Jatkonsalmentie 6, 89920 Suomussalmi, Finland",
+      "rating": 4.8,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at visitor centers and main entrances",
+      "location": {
+        "latitude": 65.4722,
+        "longitude": 29.4903
+      }
+    },
+    {
+      "nation": "Sweden",
+      "name": "Abisko National Park",
+      "address": "981 07 Abisko, Sweden",
+      "rating": 4.8,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at the Abisko Turiststation",
+      "location": {
+        "latitude": 68.3580,
+        "longitude": 18.7809
+      }
+    },
+    {
+      "nation": "Sweden",
+      "name": "Sarek National Park",
+      "address": "982 99 Gällivare, Sweden",
+      "rating": 4.7,
+      "opening_hours": "24/7",
+      "parking_info": "Limited parking available; recommended to use nearby national parks' parking",
+      "location": {
+        "latitude": 67.3833,
+        "longitude": 17.7500
+      }
+    },
+    {
+      "nation": "Sweden",
+      "name": "Stora Sjöfallet National Park",
+      "address": "982 99 Gällivare, Sweden",
+      "rating": 4.6,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at the visitor center and park entrances",
+      "location": {
+        "latitude": 67.4188,
+        "longitude": 17.4207
+      }
+    },
+    {
+      "nation": "Sweden",
+      "name": "Padjelanta National Park",
+      "address": "962 02 Kvikkjokk, Sweden",
+      "rating": 4.7,
+      "opening_hours": "24/7",
+      "parking_info": "Limited parking available; accessible by hiking",
+      "location": {
+        "latitude": 67.1881,
+        "longitude": 16.5403
+      }
+    },
+    {
+      "nation": "Sweden",
+      "name": "Tyresta National Park",
+      "address": "Tyresta By, 136 59 Haninge, Sweden",
+      "rating": 4.6,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at the main entrance",
+      "location": {
+        "latitude": 59.1758,
+        "longitude": 18.3006
+      }
+    },
+    {
+      "nation": "Sweden",
+      "name": "Fulufjället National Park",
+      "address": "790 90 Särna, Sweden",
+      "rating": 4.7,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at the Naturum Fulufjället visitor center",
+      "location": {
+        "latitude": 61.5833,
+        "longitude": 12.6800
+      }
+    },
+    {
+      "nation": "Sweden",
+      "name": "Kosterhavet National Park",
+      "address": "452 05 Sydkoster, Sweden",
+      "rating": 4.6,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at ferry terminals",
+      "location": {
+        "latitude": 58.8833,
+        "longitude": 11.0000
+      }
+    },
+    {
+      "nation": "Sweden",
+      "name": "Tiveden National Park",
+      "address": "Tiveden, 695 97 Tived, Sweden",
+      "rating": 4.7,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at main entrances",
+      "location": {
+        "latitude": 58.7389,
+        "longitude": 14.5750
+      }
+    },
+    {
+      "nation": "Sweden",
+      "name": "Skuleskogen National Park",
+      "address": "Skuleskogen, 870 30 Skuleberget, Sweden",
+      "rating": 4.6,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at entrances",
+      "location": {
+        "latitude": 63.0833,
+        "longitude": 18.4500
+      }
+    },
+    {
+      "nation": "Sweden",
+      "name": "Muddus National Park",
+      "address": "982 99 Gällivare, Sweden",
+      "rating": 4.7,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at main entrances",
+      "location": {
+        "latitude": 67.3667,
+        "longitude": 20.3333
+      }
+    },
+    {
+      "nation": "Sweden",
+      "name": "Ängsö National Park",
+      "address": "745 94 Enköping, Sweden",
+      "rating": 4.6,
+      "opening_hours": "24/7",
+      "parking_info": "Parking available at the main entrance",
+      "location": {
+        "latitude": 59.6136,
+        "longitude": 17.1317
+      }
+    }
+  ]
+  
