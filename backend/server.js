@@ -6,6 +6,7 @@ import dotenv from "dotenv"
 import bcrypt from "bcrypt"
 import parkData from "./data/park.json"
 
+
 dotenv.config()
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/park-hive"
@@ -171,6 +172,7 @@ app.post("/login", async (req, res) => {
       token: matchUser.token,
     });
   } else {
+    res.redirect("/register")
     res.json({ message: "User not found." });
   }
 });
