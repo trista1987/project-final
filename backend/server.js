@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose, {Schema, model}from 'mongoose'
 import expressListEndpoints from 'express-list-endpoints';
 import dotenv from "dotenv"
+import bcrypt from "bcrypt"
 import parkData from "./data/park.json"
 
 dotenv.config()
@@ -26,8 +27,28 @@ const parkSchema = new Schema({
   introduction: String
 });
 
+const userSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  token: {
+    type: String,
+    default: () => bcrypt.genSaltSync()
+  }
+})
 //set model
 const Park = mongoose.model ("Park", parkSchema)
+const User = mongoose.model ("User", userSchema)
 
 //seed the database
 if(process.env.RESET_DATABASE){
@@ -111,6 +132,69 @@ app.get("/parks/name", async (req, res) => {
   }
 });
 
+//auth
+app.post("/register", (req,res) => {
+  try{
+    const {name, email, password} = req.body
+    const salt = bcrypt.genSaltSync()
+    const user = new User({
+      name, 
+      email,
+      password:bcrypt.hashSync(password, salt)
+    })
+    user.save()
+    res
+      .status(201)
+      .json({ 
+        success: true,
+        message: "User created",
+        id: user._id,
+        accessToken: user.accessToken
+      });
+  } catch (err) {
+    res.redirect("/register")
+    res.status(400).json({
+      message: "Could not create user.",
+      errors: err.errors,
+    });
+  }
+})
+
+app.post("/login", async (req, res) => {
+  const matchUser = await User.findOne({
+    email: req.body.email,
+  });
+  if (matchUser && bcrypt.compareSync(req.body.password, matchUser.password)) {
+    res.json({
+      message: "User logged in.",
+      matchUserId: matchUser._id,
+      token: matchUser.token,
+    });
+  } else {
+    res.json({ message: "User not found." });
+  }
+});
+
+const authenticateUser = async (req, res, next) => {
+  const user = await User.findOne({
+    token: req.header("Authorization"),
+  });
+  if (user) {
+    req.user = user;
+    next();
+  } else {
+    res.status(401).json({
+      message: "failed.",
+    });
+  }
+};
+
+app.get("/secrets", authenticateUser);
+app.get("/secrets", (req, res) => {
+  res.json({
+    secret: "This is secrets.",
+  });
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
