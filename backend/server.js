@@ -23,6 +23,7 @@ const parkSchema = new Schema({
     latitude: Number,
     longitude: Number,
   },
+  introduction: String
 });
 
 //set model
@@ -57,7 +58,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/parks", async (req, res) => {
-  const allPark = await Park.find().limit(5);
+  const allPark = await Park.find();
 
   if (allPark.length > 0) {
     res.json(allPark);
