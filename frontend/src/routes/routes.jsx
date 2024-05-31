@@ -3,6 +3,10 @@ import { HomePage } from "../pages/HomePage";
 import { Login } from "../pages/LoginPage";
 import { Signup } from "../pages/SignupPage";
 import { LoggedPage } from "../pages/LoggedPage";
+import {FinlandPage} from "../pages/FinlandPage"
+import {SwedenPage} from "../pages/SwedenPage"
+import {AboutPage} from "../pages/AboutPage"
+
 
 // import { ProtectedRoute } from "./pages/ProtectedRoute";
 
@@ -13,6 +17,9 @@ const checkAuth = () => {
   export const routes = (
     <>
       <Route path="/" element={<HomePage />} />
+      <Route path="/finland" element={<FinlandPage />} />
+      <Route path="/sweden" element={<SwedenPage />} />
+      <Route path="/about" element={<AboutPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route
@@ -24,6 +31,7 @@ const checkAuth = () => {
               element={checkAuth() ? <Navigate to="/logged" /> : <Signup />}
             />
             <Route path="/logged" element={<LoggedPage />} />
+
             {/* <Route path="/logged" element={
               <ProtectedRoute>
                 <LoggedPage />
