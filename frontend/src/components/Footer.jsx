@@ -9,21 +9,21 @@ export const Footer = () => {
   ];
   return (
     <>
+    <div>
+      <div>
+        <WebName />
+        <ul className="navbar">
+          {links.map(({ to, text }) => (
+            <li key={to} className="nav-li">
+              <Link to={to}>{text}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
       <footer>
-        <div>
-          <WebName />
-          <ul className="navbar">
-            {links.map(({ to, text }) => (
-              <li key={to} className="nav-li">
-                <Link to={to}>{text}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <p>Created by Trista Shan & Yia Tsai</p>
-        </div>
+        <p>Created by Trista Shan & Yia Tsai</p>
       </footer>
+    </div>
     </>
   );
 };
