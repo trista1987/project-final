@@ -1,3 +1,4 @@
+import {Weather} from "../components/Weather"
 export const SwedenPage = () => {
     return (
         <>

@@ -39,7 +39,6 @@ export const Weather = ({city}) => {
            //icon
            <p>{weather.main.temp}°C</p>
            <p>{moment().format('MMMM Do YYYY, h:mm:ss a')}</p>
-           <p>time</p>
            <p>{weather.name}:{weather.weather[0].description}</p>
         </div>
       )
