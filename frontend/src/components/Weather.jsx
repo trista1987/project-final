@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react"
-import moment from "moment"
+import moment from "moment-timezone"
 
-export const Weather = ({city}) => {
+export const Weather = ({city, timezone}) => {
     const [weather, setWeather] = useState(null)
     const [loading, setLoading] = useState(null)
 
@@ -38,7 +38,7 @@ export const Weather = ({city}) => {
         <div>
            //icon
            <p>{weather.main.temp}°C</p>
-           <p>{moment().format('MMMM Do YYYY, h:mm:ss a')}</p>
+           <p>{moment().tz(`${timezone}`).format('MMMM Do YYYY, h:mm:ss a')}</p>
            <p>{weather.name}:{weather.weather[0].description}</p>
         </div>
       )

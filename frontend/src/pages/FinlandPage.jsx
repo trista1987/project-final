@@ -3,7 +3,7 @@ export const FinlandPage = () => {
     return (
         <>
         <p>Finland</p>
-        <Weather city = {"Helsinki"} />
+        <Weather city = {"Helsinki"} timezone={"Europe/helsinki"}/>
         </>
     )
 }
