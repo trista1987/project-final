@@ -6,6 +6,7 @@ import { LoggedPage } from "../pages/LoggedPage";
 import {FinlandPage} from "../pages/FinlandPage"
 import {SwedenPage} from "../pages/SwedenPage"
 import {AboutPage} from "../pages/AboutPage"
+import { ParkDetails } from "../components/ParkComp.jsx/ParkDetails";
 
 
 // import { ProtectedRoute } from "./pages/ProtectedRoute";
@@ -37,6 +38,7 @@ const checkAuth = () => {
                 <LoggedPage />
               </ProtectedRoute>
             }/> */}
+      <Route path="/parks/:park_id" element={<ParkDetails />} />
     </>
   )
 

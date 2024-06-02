@@ -1,34 +1,32 @@
-// import { useParkStore } from "../store/useParkStore";
-// import { useNavigate } from "react-router-dom";
-// import {useEffect} from "react"
+/* eslint-disable no-console */
+import { useParkStore } from "../store/useParkStore";
+import { useNavigate } from "react-router-dom";
+import {useEffect} from "react"
 
-// export const ParkSlides = () => {
-//     const {fetchParkData, parkData, loading, error} = useParkStore()
-//     // const navigate = useNavigate()
+export const ParkSlides = ({nation}) => {
+    const {fetchParkData, parkData, loading, error} = useParkStore()
+    const navigate = useNavigate()
     
-//     useEffect(()=> {
-//         fetchParkData("http://localhost:8080/parks")
-//         console.log(parkData)
-//     }, [fetchParkData])
+    useEffect(()=> {
+        fetchParkData(`https://parkhive.onrender.com/parks?nation=${nation}`)
+        console.log(parkData)
+    }, [fetchParkData, nation])
 
-//    if(loading) {
-//     return <div>Loading...</div>
-//    }
+   if(loading) {
+    return <div>Loading...</div>
+   }
 
-//    if(error) {
-//     return <div>Error: {error}</div>
-//    }
-
-//    return (
-//     <div>
-//         {parkData.map((park) => (
-//            <div key={park.id}>
-//             <h4>{park.name}</h4>
-//             <p>{park.introduction}</p>
-//            </div>
-//         ))}
-//     </div>
-        
-  
-//    )
-// }
+   if(error) {
+    return <div>Error: {error}</div>
+   }
+   
+   return (
+    <div>
+        {parkData.map((park) => (
+           <div key={park._id} onClick={() => navigate(`/parks/${park._id}`)}>
+            <h4>{park.name} </h4>
+           </div>
+        ))}
+    </div>
+   )
+}
