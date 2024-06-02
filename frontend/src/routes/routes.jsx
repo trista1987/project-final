@@ -28,7 +28,7 @@ const checkAuth = () => {
             />
             <Route
               path="/signup"
-              element={checkAuth() ? <Navigate to="/logged" /> : <Signup />}
+              element={checkAuth() ? <Navigate to="/login" /> : <Signup />}
             />
             <Route path="/logged" element={<LoggedPage />} />
 
@@ -39,3 +39,5 @@ const checkAuth = () => {
             }/> */}
     </>
   )
+
+  //signup then link to login?

@@ -15,17 +15,17 @@ mongoose.Promise = Promise
 
 //setup Schema
 const parkSchema = new Schema({
-  nation: String,
-  name: String,
-  address: String,
-  rating: Number,
-  opening_hours: String,
-  parking_info: String,
-  location: {
-    latitude: Number,
-    longitude: Number,
+  "nation": String,
+  "name": String,
+  "address": String,
+  "rating": Number,
+  "opening_hours": String,
+  "parking_info": String,
+  "location": {
+    "latitude": Number,
+    "longitude": Number,
   },
-  introduction: String
+  "introduction": String
 });
 
 const userSchema = new Schema({
@@ -68,6 +68,9 @@ if(process.env.RESET_DATABASE){
 const port = process.env.PORT || 8080;
 const app = express();
 
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
@@ -80,58 +83,108 @@ app.get("/", (req, res) => {
 });
 
 app.get("/parks", async (req, res) => {
-  const allPark = await Park.find();
+  try {
+    // Check if query parameters are provided
+    const nationName = req.query.nation;
+    const parkName = req.query.name;
+    
+    if (nationName) {
+      const escapedNationName = escapeRegExp(nationName);
+      const nationRegex = new RegExp(escapedNationName, "i");
 
-  if (allPark.length > 0) {
-    res.json(allPark);
-  } else {
-    res.status(404).send("no park data was found.");
+      const nationResult = await Park.find({ nation: nationRegex });
+
+      if (nationResult.length > 0) {
+        return res.json(nationResult);
+      } else {
+        return res.status(404).send("No park data was found for the specified nation.");
+      }
+    }
+
+    if (parkName) {
+      const escapedParkName = escapeRegExp(parkName);
+      const nameRegex = new RegExp(escapedParkName, "i");
+
+      const nameResult = await Park.find({ name: nameRegex });
+
+      if (nameResult.length > 0) {
+        return res.json(nameResult);
+      } else {
+        return res.status(404).send("No park data was found for the specified name.");
+      }
+    }
+
+    // If no query parameters, return all parks
+    const allParks = await Park.find();
+    if (allParks.length > 0) {
+      return res.json(allParks);
+    } else {
+      return res.status(404).send("No park data was found.");
+    }
+
+  } catch (err) {
+    res.status(500).send("An error occurred while fetching park data.");
   }
 });
 
+
 app.get("/parks/:id", async (req, res) => {
-  const parkById = await Park.findById(req.params.id)
-  if(parkById){
-    res.json(parkById)
-  }else {
-    res.status(404).send("no park data was found.")
+  
+  try {
+    const id = req.params.id;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).send("Invalid park ID.");
+    }
+
+    const parkById = await Park.findById(id);
+    if (parkById) {
+      res.json(parkById);
+    } else {
+      res.status(404).send("No park data was found.");
+    }
+  } catch (err) {
+    res.status(500).send("An error occurred while fetching park data.");
   }
 })
 
-app.get("/parks/nation", async (req, res) => {
-  try {
-    const nationName = req.query.nation;
-    const escapedNationName = escapeRegExp(nationName);
-    const regex = new RegExp(nationName, "i");
+// app.get("/parks/nation", async (req, res) => {
+//   try {
+//     const nationName = req.query.nation;
+//     if (!nationName) {
+//       return res.status(400).send("Nation name query parameter is required.");
+//     }
 
-    const nationResult = await Park.find({ nation: regex });
+//     const escapedNationName = escapeRegExp(nationName);
+//     const regex = new RegExp(escapedNationName, "i");
 
-    if (nationResult) {
-      res.json(nationResult);
-    } else {
-      res.status(404).send("no park data was found.");
-    }
-  } catch (err) {
-    res.status(500).send("An error occurred while fetching park data.");
-  }
-});
+//     const nationResult = await Park.find({ nation: regex });
 
-app.get("/parks/name", async (req, res) => {
-  try {
-    const parkName = req.query.name;
-    const escapeParkName = escapeRegExp(parkName);
-    const regex = new RegExp(parkName, "i");
-    const nameResult = await Park.find({ nation: regex });
+//     if (nationResult.length > 0) {
+//       res.json(nationResult);
+//     } else {
+//       res.status(404).send("No park data was found.");
+//     }
+//   } catch (err) {
+//     res.status(500).send("An error occurred while fetching park data.");
+//   }
+// });
 
-    if (nameResult) {
-      res.json(nameResult);
-    } else {
-      res.status(404).send("no park data was found.");
-    }
-  } catch (err) {
-    res.status(500).send("An error occurred while fetching park data.");
-  }
-});
+// app.get("/name", async (req, res) => {
+//   try {
+//     const parkName = req.query.name;
+//     // const escapeParkName = escapeRegExp(parkName);
+//     const regex = new RegExp(parkName, "i");
+//     const nameResult = await Park.find({ nation: regex });
+
+//     if (nameResult) {
+//       res.json(nameResult);
+//     } else {
+//       res.status(404).send("no park data was found.");
+//     }
+//   } catch (err) {
+//     res.status(500).send("An error occurred while fetching park data.");
+//   }
+// });
 
 //auth
 app.post("/register", (req,res) => {

@@ -37,7 +37,7 @@ export const Weather = ({city, timezone}) => {
       return (
         <div>
            //icon
-           <p>{weather.main.temp}°C</p>
+           <p>{Math.round(weather.main.temp)}°C</p>
            <p>{moment().tz(`${timezone}`).format('MMMM Do YYYY, h:mm:ss a')}</p>
            <p>{weather.name}:{weather.weather[0].description}</p>
         </div>

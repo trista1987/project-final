@@ -1,5 +1,6 @@
 import { DevCard } from "../components/DevCard";
 import { Footer } from "../components/Footer";
+import { ScrollToTop } from "../components/buttons/ToTopBtn";
 export const AboutPage = () => {
   return (
     <>
@@ -55,6 +56,7 @@ export const AboutPage = () => {
           portfolioLink={""}
         />
       </div>
+      <ScrollToTop />
       <Footer />
     </>
   );
