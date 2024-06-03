@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { WebName } from "./WebName";
 import { SignupBtn } from "./buttons/SignupBtn";
 
+
 export const NavBar = () => {
   const links = [
     { to: "/", text: "Home" },
@@ -12,6 +13,7 @@ export const NavBar = () => {
 
   return (
     <div className="park-nav">
+      
       <WebName />
       <nav>
         <ul className="navbar">
