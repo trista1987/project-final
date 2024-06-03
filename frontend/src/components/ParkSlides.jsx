@@ -1,34 +1,39 @@
-// import { useParkStore } from "../store/useParkStore";
-// import { useNavigate } from "react-router-dom";
-// import {useEffect} from "react"
+/* eslint-disable no-console */
+import { useParkStore } from "../store/useParkStore";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Carousel } from "antd";
 
-// export const ParkSlides = () => {
-//     const {fetchParkData, parkData, loading, error} = useParkStore()
-//     // const navigate = useNavigate()
-    
-//     useEffect(()=> {
-//         fetchParkData("http://localhost:8080/parks")
-//         console.log(parkData)
-//     }, [fetchParkData])
+export const ParkSlides = ({ nation }) => {
+  const { fetchParkData, parkData, loading, error } = useParkStore();
 
-//    if(loading) {
-//     return <div>Loading...</div>
-//    }
+  useEffect(() => {
+    fetchParkData(`https://parkhive.onrender.com/parks?nation=${nation}`);
+    console.log(parkData);
+  }, [fetchParkData, nation]);
 
-//    if(error) {
-//     return <div>Error: {error}</div>
-//    }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-//    return (
-//     <div>
-//         {parkData.map((park) => (
-//            <div key={park.id}>
-//             <h4>{park.name}</h4>
-//             <p>{park.introduction}</p>
-//            </div>
-//         ))}
-//     </div>
-        
-  
-//    )
-// }
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  return (
+    <Carousel>
+      <ul>
+        {parkData.map((park) => (
+          <li key={park._id}>
+            <Link
+              to={`/${nation}/${park.name.toLowerCase().replace(/ /g, "-")}`}
+            >
+              {park.name}
+            </Link>
+            <p>{park.introduction.slice(0, 100)}</p>
+          </li>
+        ))}
+      </ul>
+    </Carousel>
+  );
+};

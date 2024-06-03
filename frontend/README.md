@@ -18,3 +18,6 @@ During the process of our final project, it was fun to explore more libraries fo
 
 2. Back-to-top button
 - [react-scroll-to-top]('https://www.npmjs.com/package/react-scroll-to-top')
+
+3. Map for each parks
+- Since Google map API is only for free 3 months, so we use [React Leaflet]('https://react-leaflet.js.org/') instead of using Google Map. 
