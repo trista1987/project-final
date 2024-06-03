@@ -1,11 +1,10 @@
 /* eslint-disable no-console */
 import { useParkStore } from "../store/useParkStore";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {useEffect} from "react"
 
 export const ParkSlides = ({nation}) => {
     const {fetchParkData, parkData, loading, error} = useParkStore()
-    const navigate = useNavigate()
     
     useEffect(()=> {
         fetchParkData(`https://parkhive.onrender.com/parks?nation=${nation}`)
@@ -21,12 +20,12 @@ export const ParkSlides = ({nation}) => {
    }
    
    return (
-    <div>
-        {parkData.map((park) => (
-           <div key={park._id} onClick={() => navigate(`/parks/${park._id}`)}>
-            <h4>{park.name} </h4>
-           </div>
-        ))}
-    </div>
-   )
+     <ul>
+       {parkData.map((park) => (
+           <li key={park._id}>
+            <Link to={`/${nation}/${park.name.toLowerCase().replace(/ /g, "-")}`}>{park.name}</Link>
+            </li>
+       ))}
+     </ul>
+   );
 }
