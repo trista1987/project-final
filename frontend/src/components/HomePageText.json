@@ -6,7 +6,13 @@
       "btnName": "Visit Finland",
       "textImg": "/backgroundImages/mainpage-finland.jpg",
       "textImgAlt": "Finland Landscape",
-      "linkTo": "/finland"
+      "linkTo": "/finland",
+      "h2": "text-fontColor",
+      "body": "text-fontColor",
+      "textBg": "bg-bg1",
+      "btnBg": "bg-bg2",
+      "btnText": "text-cardBg",
+      "imageFirst": true
     },
     {
       "textTitle": "A Dazzling Display of Nature | Explore Sweden",
@@ -14,7 +20,13 @@
       "btnName": "Visit Sweden",
       "textImg": "/backgroundImages/mainpage-sweden.jpg",
       "textImgAlt": "Sweden Landscape",
-      "linkTo": "/sweden"
+      "linkTo": "/sweden",
+      "h2": "text-cardBg",
+      "body": "text-cardBg",
+      "textBg": "bg-bg2",
+      "btnBg": "bg-bg1",
+      "btnText": "text-bg2",
+      "imageFirst": false
     }
   ]
 }
