@@ -3,6 +3,7 @@ import { PageHeader } from "../components/PageHeader";
 import {ToTopBtn} from "../components/buttons/ToTopBtn"
 import {Footer} from "../components/Footer"
 import { Weather } from "../components/Weather";
+import { AllParkSlides } from "../components/AllParkSlides";
 
 export const HomePage = () => {
   return (
@@ -28,6 +29,7 @@ export const HomePage = () => {
         btnName={"Visit Sweden"}
       />
       <div className="lg:relative md:relative">
+      <AllParkSlides />
         <Weather
           city={"Helsinki"}
           timezone={"Europe/Helsinki"}
