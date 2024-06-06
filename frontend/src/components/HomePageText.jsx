@@ -15,10 +15,14 @@ export const HomePageText = ({
   h2,
   body,
   imageFirst,
+  textPosition,
 }) => {
-  // Debug logs to check if values are correctly passed
+  // To check if all dynamic values are correctly passed
   console.log("textBg:", textBg);
-  
+  console.log("btnBg:", btnBg);
+  console.log("btnText:", btnText);
+
+
   return (
     <div
       className={`relative flex flex-col ${
@@ -28,10 +32,11 @@ export const HomePageText = ({
       <img
         src={textImg}
         alt={textImgAlt}
-        className="w-full md:w-2/3 h-auto md:h-screen object-cover"
+        className="w-full md:w-2/3 h-auto object-cover"
       />
       <div
-        className={`relative z-10 p-6 max-w-2xl mx-auto ${textBg} rounded-lg`}
+        className={`lg:relative md: p-6 mx-auto ${textBg} rounded-lg w-full lg:w-[535px] h-auto lg:h-[477px]`}
+ 
       >
         <h2
           className={`lg:text-h2lg md:text-h2md sm:text-h2sm font-avenir mb-1.8rem text-left ${h2}`}
