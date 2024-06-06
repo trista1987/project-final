@@ -12,8 +12,7 @@
       "textBg": "bg-bg1",
       "btnBg": "bg-bg2",
       "btnText": "text-cardBg",
-      "imageFirst": false,
-      "textPosition": "left"
+      "imageFirst": false
     },
     {
       "textTitle": "A Dazzling Display of Nature | Explore Sweden",
@@ -27,8 +26,7 @@
       "textBg": "bg-bg2",
       "btnBg": "bg-bg1",
       "btnText": "text-bg2",
-      "imageFirst": true,
-      "textPosition": "right"
+      "imageFirst": true
     }
   ]
 }
