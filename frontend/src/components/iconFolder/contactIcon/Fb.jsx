@@ -1,9 +1,9 @@
-export const Fb = ({ fill = "#020209" }) => {
+export const Fb = ({ fill = "#020209", width="13", height="22"}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="13"
-      height="22"
+      width={width}
+      height={height}
       viewBox="0 0 13 22"
       fill="none"
     >

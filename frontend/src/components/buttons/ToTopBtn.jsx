@@ -12,7 +12,7 @@ export const ScrollToTop = () => {
             Back to top
             <TopArrow />
           </p>
-        }
+        } 
       />
     </div>
   );

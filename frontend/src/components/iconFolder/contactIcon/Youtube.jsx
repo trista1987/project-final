@@ -1,9 +1,9 @@
-export const Youtube = ({ fill = "#020209" }) => {
+export const Youtube = ({ fill = "#020209", width="21", height="14" }) => {
   return (
     <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="21"
-    height="14"
+    width={width}
+    height={height}
     viewBox="0 0 21 14"
     fill="none"
   >

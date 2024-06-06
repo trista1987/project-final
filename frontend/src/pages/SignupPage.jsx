@@ -1,6 +1,7 @@
 import { useUserStore } from "../store/useStore";
 import { useState} from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { Footer } from "../components/Footer";
 
 export const Signup = () => {
   const {
@@ -111,6 +112,7 @@ export const Signup = () => {
           Already have an account? Login <a href="/login">here</a>
         </p>
       </div>
+      <Footer />
     </>
   );
 };

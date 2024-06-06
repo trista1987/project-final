@@ -1,3 +1,4 @@
+import { Footer } from "../components/Footer";
 import { useUserStore } from "../store/useStore";
 import { useNavigate } from "react-router-dom";
 
@@ -60,6 +61,7 @@ export const Login = () => {
           Or you can sign up <a href="/signup">here</a>
         </p>
       </div>
+      <Footer />
     </>
   );
 };

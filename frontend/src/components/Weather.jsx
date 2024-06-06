@@ -5,7 +5,7 @@ import { Cloudy } from "../components/iconFolder/weatherIcon/Cloudy";
 import { Sunny } from "./iconFolder/weatherIcon/Sunny";
 import { Rain } from "./iconFolder/weatherIcon/Rain";
 
-export const Weather = ({ city, timezone }) => {
+export const Weather = ({ city, timezone, className }) => {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(null);
 
@@ -46,10 +46,10 @@ export const Weather = ({ city, timezone }) => {
   let iconColor
   let textColor
   if (location.pathname === "/sweden") {
-    bgColor = "bg-bg2"
+    bgColor = "bg-weather2"
     iconColor = "#FFFFFF" 
     textColor = "text-cardBg"
-  } else if (location.pathname === "/finland" && "/") {
+  } else if (location.pathname === "/finland" || location.pathname === "/") {
     bgColor = "bg-weather1"
     iconColor = "#3B744E"
     textColor = "text-fontColor"
@@ -62,7 +62,7 @@ export const Weather = ({ city, timezone }) => {
   const temp = Math.round(weather.main.temp);
   return (
     <>
-      <div className={`${bgColor} ${textColor} flex-col space-y-[80px] p-3 max-h-full text-textdm md:text-textmd lg:text-textlg`}>
+      <div className={`${bgColor} ${textColor} ${className} flex-col sm:h-[110px] sm:space-y-[20px] lg:space-y-[80px] p-3 max-h-full text-textdm md:text-textmd lg:text-textlg rounded  md:h-[250px] lg:h-[250px] md:w-[450px] lg:w-[700px]`}>
         <div className="flex flex-row content-center space-x-3">
           <div className="flex space-x-2">
             {description === "clear sky" ? (
