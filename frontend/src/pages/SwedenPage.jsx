@@ -3,7 +3,7 @@ import { ParkSlides } from "../components/ParkSlides"
 import { PageHeader } from "../components/PageHeader"
 import { CountryIntro } from "../components/CountryIntro"
 import { MidBanner } from "../components/MidBanner"
-import { ScrollToTop } from "../components/buttons/ToTopBtn"
+import { ToTopBtn } from "../components/buttons/ToTopBtn"
 import { Footer } from "../components/Footer"
 export const SwedenPage = () => {
     return (
@@ -20,7 +20,9 @@ export const SwedenPage = () => {
             />
             <Footer />
        </div>
-        <ScrollToTop />
+       <ToTopBtn />
+       
+        
         </>
     )
 }

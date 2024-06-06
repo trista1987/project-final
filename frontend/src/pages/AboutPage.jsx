@@ -1,6 +1,6 @@
 import { DevCard } from "../components/DevCard";
 import { Footer } from "../components/Footer";
-import { ScrollToTop } from "../components/buttons/ToTopBtn";
+import { ToTopBtn } from "../components/buttons/ToTopBtn";
 import { Link } from "react-router-dom";
 import { WebName } from "../components/WebName";
 
@@ -78,7 +78,7 @@ export const AboutPage = () => {
           portfolioLink={""}
         />
       </div>
-      <ScrollToTop />
+      <ToTopBtn />
       <Footer />
     </>
   );
