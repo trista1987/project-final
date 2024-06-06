@@ -1,0 +1,20 @@
+{
+  "homepagetext": [
+    {
+      "textTitle": "Discover Finnish Happiness | Explore Finland",
+      "text": "Explore the breathtaking nature of Finland. Breathe in the fresh air of ancient forests, dip your toes in pristine lakes, and reconnect with yourself under the vast Arctic sky. Find your inner Finn – nature awaits.",
+      "btnName": "Visit Finland",
+      "textImg": "/backgroundImages/mainpage-finland.jpg",
+      "textImgAlt": "Finland Landscape",
+      "linkTo": "/finland"
+    },
+    {
+      "textTitle": "A Dazzling Display of Nature | Explore Sweden",
+      "text": "Hike beneath the midnight sun in summer, trek through vibrant fall foliage, or chase the Northern Lights in winter. Every season unveils a new adventure in Sweden's breathtaking nature.",
+      "btnName": "Visit Sweden",
+      "textImg": "/backgroundImages/mainpage-sweden.jpg",
+      "textImgAlt": "Sweden Landscape",
+      "linkTo": "/sweden"
+    }
+  ]
+}
