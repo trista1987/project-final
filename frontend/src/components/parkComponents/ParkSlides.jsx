@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
-import { useParkStore } from "../store/useParkStore";
+import { useParkStore } from "../../store/useParkStore";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Carousel } from "antd";
+import { ParkImage } from "./ParkImage";
 
 export const ParkSlides = ({ nation }) => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
@@ -21,10 +22,18 @@ export const ParkSlides = ({ nation }) => {
   }
 
   return (
-    <Carousel>
+    <div>
+      <ParkImage />
       <ul>
         {parkData.map((park) => (
           <li key={park._id}>
+            <Link
+              to={`/${park.nation}/${park.name
+                .toLowerCase()
+                .replace(/ /g, "-")}`}
+            >
+              <ParkImage name={park.name} alt={`${park.name}`} />
+            </Link>
             <Link
               to={`/${nation}/${park.name.toLowerCase().replace(/ /g, "-")}`}
             >
@@ -34,6 +43,6 @@ export const ParkSlides = ({ nation }) => {
           </li>
         ))}
       </ul>
-    </Carousel>
+    </div>
   );
 };

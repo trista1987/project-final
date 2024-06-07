@@ -1,5 +1,5 @@
 import {Weather} from "../components/Weather"
-import { ParkSlides } from "../components/ParkSlides"
+import { ParkSlides } from "../components/parkComponents/ParkSlides"
 import { PageHeader } from "../components/PageHeader"
 import { CountryIntro } from "../components/CountryIntro"
 import { MidBanner } from "../components/MidBanner"
