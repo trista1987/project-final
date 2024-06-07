@@ -1,8 +1,9 @@
 import { HomePageText } from "../components/HomePageText";
 import { PageHeader } from "../components/PageHeader";
-import {ToTopBtn} from "../components/buttons/ToTopBtn"
-import {Footer} from "../components/Footer"
+import { ScrollToTop } from "../components/buttons/ToTopBtn";
+import { Footer } from "../components/Footer";
 import { Weather } from "../components/Weather";
+import { AllParkSlides } from "../components/parkComponents/AllParkSlides";
 
 export const HomePage = () => {
   return (
@@ -28,6 +29,7 @@ export const HomePage = () => {
         btnName={"Visit Sweden"}
       />
       <div className="lg:relative md:relative">
+        <AllParkSlides />
         <Weather
           city={"Helsinki"}
           timezone={"Europe/Helsinki"}
@@ -35,7 +37,7 @@ export const HomePage = () => {
         />
         <Footer />
       </div>
-      <ToTopBtn />
+      <ScrollToTop />
     </>
   );
 };

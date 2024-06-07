@@ -28,6 +28,7 @@ export default {
       "h2lg": ["40px", {fontWeight: "700"}],
       "h2sm": ["20px", {fontWeight: "700"}],
       "textlg": ["18px", {fontWeight: "700"}],
+      "xl": ["14px", {fontWeight: "700"}],
       "textmd": ["16px", {fontWeight: "500"}],
       "textsm": ["13px", {fontWeight: "500"}],
     },

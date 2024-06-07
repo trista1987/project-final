@@ -1,57 +1,39 @@
-//each page down side scroll to top
 import { TopArrow } from "../iconFolder/TopArrow";
-import {useState, useEffect} from "react"
+import ScrollTop from "react-scroll-to-top";
+import { useLocation } from "react-router-dom";
 
-export const ToTopBtn = () => {
-  const [isVisibile, setIsVisible] = useState(false)
-  const toggleVisibility = () => {
-    if (window.scrollY > 300) {
-      setIsVisible(true)
-    } else {
-      setIsVisible(false)
-    }
+export const ScrollToTop = () => {
+  const location = useLocation();
+
+  let textColor;
+  let iconColor;
+  if (location.pathname === "/sweden" || location.pathname === "/signup") {
+    iconColor = "#FFFFFF";
+    textColor = "text-cardBg";
+  } else if (
+    location.pathname === "/finland" ||
+    location.pathname === "/" ||
+    location.pathname === "/about" ||
+    location.pathname === "/login" ||
+    location.pathname === "/logged" ||
+    location.pathname === "*"
+  ) {
+    iconColor = "#020209";
+    textColor = "text-fontColor";
   }
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    })
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility)
-
-    return() => {
-      window.removeEventListener("scroll", toggleVisibility)
-    }
-  }, [])
 
   return (
     <div>
-      {isVisibile && (
-        <button onClick={scrollToTop}
-        className="fixed bottom-4 right-4 p-2 bg-transparent text-fontColor text-lg flex items-center space-x-2" >
-          <span>Back to top</span>
-          <TopArrow />
-        </button>
-      )}
+      <ScrollTop
+        smooth
+        className="w-[0px] h-[0px] flex flex-col pr-3 pb-2"
+        component={
+          <div>
+            <TopArrow fill={`${iconColor}`} />
+            <p className={`${textColor} text-xl text-center`}>Top</p>
+          </div>
+        }
+      />
     </div>
-  )
-}
-// import ScrollTop from "react-scroll-to-top";
-
-// export const ScrollToTop = () => {
-//   return (
-//     <div>
-//       <ScrollTop
-//         smooth
-//         component={
-//           <div className="content-center">
-//          <TopArrow/>
-//          </div>
-//         } 
-//       />
-//     </div>
-//   );
-// };
+  );
+};

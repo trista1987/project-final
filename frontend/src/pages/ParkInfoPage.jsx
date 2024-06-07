@@ -2,6 +2,7 @@ import { useParkStore } from "../store/useParkStore";
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Map } from "../components/Map";
+import { ParkImage } from "../components/parkComponents/ParkImage";
 
 export const ParkInfoPage = () => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
@@ -32,10 +33,6 @@ export const ParkInfoPage = () => {
     )
     
   }
-  
-  // const offsetLat = 0.01
-  // const offsetLng = 0.01
-  // const center = [parkInfo.location.latitude + offsetLat, parkInfo.location.longitude + offsetLng]
 
   return (
     <>
@@ -47,6 +44,7 @@ export const ParkInfoPage = () => {
         <p>{parkInfo.parking_info}</p>
         <Map position={[parkInfo.location.latitude, parkInfo.location.longitude]} parkName={parkInfo.name}/>
         <p>{parkInfo.introduction}</p>
+        <ParkImage name={parkInfo.name} alt={`${parkInfo.name}`} />
       </div>
     </>
   );
