@@ -26,7 +26,7 @@ export const ScrollToTop = () => {
     <div>
       <ScrollTop
         smooth
-        className="w-[0px] flex flex-col "
+        className="w-[0px] h-[0px] flex flex-col pr-3 pb-2"
         component={
           <div>
             <TopArrow fill={`${iconColor}`} />
