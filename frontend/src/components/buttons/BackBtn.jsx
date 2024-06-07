@@ -1,10 +1,13 @@
-//up left corner back btn
-// import {Link} from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
+import {BackArrow} from "../iconFolder/BackArrow"
 
-// export const BackToHomeBtn = () => {
-//     return (
+export const BackBtn = () => {
+    const navigate = useNavigate()
 
-//         <Link to={"/"}>Back to home page</Link>
-      
-//     )
-// }
+    return (
+        <button onClick={()=>navigate(-1)} className="flex flex-row gap-2 p-3">
+            <BackArrow />
+            <p className="text-textlg">Back</p>
+        </button>
+    )
+}
