@@ -4,7 +4,7 @@ import { Weather } from "../components/Weather";
 import { CountryIntro } from "../components/CountryIntro";
 import { MidBanner } from "../components/MidBanner";
 import { Footer } from "../components/Footer";
-import { ToTopBtn } from "../components/buttons/ToTopBtn";
+import { ScrollToTop } from "../components/buttons/ToTopBtn";
 
 export const FinlandPage = () => {
   return (
@@ -32,7 +32,7 @@ export const FinlandPage = () => {
         />
         <Footer />
       </div>
-      <ToTopBtn />
+      <ScrollToTop />
     </>
   );
 };

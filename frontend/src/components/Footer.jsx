@@ -1,9 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-
 import { Contact } from "./Contact";
-
-
-
 
 export const Footer = ({className}) => {
   const links = [
