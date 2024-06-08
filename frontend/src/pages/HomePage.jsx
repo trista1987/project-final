@@ -1,4 +1,3 @@
-import { HomePageText } from "../components/HomePageText";
 import { PageHeader } from "../components/PageHeader";
 import { ScrollToTop } from "../components/buttons/ToTopBtn";
 import { Footer } from "../components/Footer";
