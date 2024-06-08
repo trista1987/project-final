@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
       sm: "320px",
@@ -16,21 +13,21 @@ export default {
       weather1: "#DFEDF4",
       weather2: "#68A97E",
       fontColor: "#020209",
-      cardBg: "#FFFFFF"  
+      cardBg: "#FFFFFF",
     },
     fontSize: {
-      "logoLg": ["40px", { fontWeight: "600" }],
-      "logoMd": ["26px", { fontWeight: "600" }],
-      "logoSm": ["16px", { fontWeight: "600" }],
-      "h1lg": ["95px", {fontWeight: "700"}],
-      "h1md": ["50px", {fontWeight: "700"}],
-      "h1sm": ["30px", {fontWeight: "700"}],
-      "h2lg": ["40px", {fontWeight: "700"}],
-      "h2sm": ["20px", {fontWeight: "700"}],
-      "textlg": ["18px", {fontWeight: "700"}],
-      "xl": ["14px", {fontWeight: "700"}],
-      "textmd": ["16px", {fontWeight: "500"}],
-      "textsm": ["13px", {fontWeight: "500"}],
+      logoLg: ["40px", { fontWeight: "600" }],
+      logoMd: ["26px", { fontWeight: "600" }],
+      logoSm: ["16px", { fontWeight: "600" }],
+      h1lg: ["95px", { fontWeight: "700" }],
+      h1md: ["50px", { fontWeight: "700" }],
+      h1sm: ["30px", { fontWeight: "700" }],
+      h2lg: ["40px", { fontWeight: "700" }],
+      h2sm: ["20px", { fontWeight: "700" }],
+      textlg: ["18px", { fontWeight: "700" }],
+      xl: ["14px", { fontWeight: "700" }],
+      textmd: ["16px", { fontWeight: "500" }],
+      textsm: ["13px", { fontWeight: "500" }],
     },
     spacing: {
       1: "5px",
@@ -39,15 +36,17 @@ export default {
     },
     extend: {
       fontFamily: {
-        avenir: ["Avenir", "sans-serif" ]
+        avenir: ["Avenir", "sans-serif"],
       },
-      backgroundImage: {
-
-      }
+      backgroundImage: {},
+      backgroundColor: {
+        "navbar-hover": "#FFFFFF",
+        "navbar-default": "transparent",
+      },
     },
   },
   plugins: ["prettier-plugin-tailwindcss"],
-}
+};
 
 //h2 tablet font size: "h1sm"
 //footer text and button text: text font size for each screen
