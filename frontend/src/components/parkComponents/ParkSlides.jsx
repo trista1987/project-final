@@ -3,7 +3,7 @@ import { useParkStore } from "../../store/useParkStore";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { ParkImage } from "./ParkImage";
-import Carousel from 'react-multi-carousel';
+import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
 import { Line } from "../iconFolder/Line";
 
