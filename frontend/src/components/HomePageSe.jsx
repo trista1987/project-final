@@ -10,26 +10,37 @@ export const HomePageSe = () => {
   const btnName = "Visit Sweden";
 
   return (
-    <div className="relative w-full md:w-2/3 h-auto flex flex-col md:flex-row sm:flex-wrap">
-      <div className={`flex-1 ${true ? "order-1" : "order-2"}`}>
+    <div className="relative w-full md:w-2/3 flex flex-col md:flex-row md:pt-20"
+    style={{marginTop:"50px"}}>
+      <div className="flex-1 h-[600px]">
         <img
           src={textImg}
           alt={textImgAlt}
           className="w-full h-full object-cover"
         />
       </div>
-      <div className={`flex-1 ${true ? "order-2" : "order-1"} p-4`}>
-        <div className="relative bg-green-500 rounded-lg flex flex-col justify-center p-4 md:p-12">
-          <h2 className="text-white text-lg md:text-2xl font-avenir my-4">
+      <div className="flex-1 p-4 md:p-12 md:absolute md:top-1/2 md:right-[-30%] md:w-[50%] md:transform md:-translate-y-1/2 md:-translate-x-3/3">
+        <div className="bg-bg2 md:rounded-lg flex flex-col justify-center p-4 md:p-12">
+          <h2
+            className="text-cardBg lg:text-h2lg md:text-h2md sm:text-h2sm font-avenir my-4"
+            style={{ margin: "16px", paddingTop: "8px" }}
+          >
             {textTitle}
           </h2>
-          <p className="text-black text-base md:text-lg font-avenir my-4">
+          <p
+            className="text-cardBg lg:text-textlg md:text-textmd sm:text-textsm font-avenir my-4"
+            style={{
+              margin: "16px",
+              paddingBottom: "8px",
+              paddingRight: "8px",
+            }}
+          >
             {text}
           </p>
 
           <Link to={linkTo}>
-            <div className="my-4">
-              <button className="bg-blue-100 text-white font-avenir font-bold rounded-lg text-base md:text-lg py-2 px-4">
+            <div style={{ margin: "16px", marginBottom: "50px" }}>
+              <button className="bg-bg1 text-bg2 font-avenir font-bold rounded-lg md:text-lg py-2 px-2">
                 {btnName}
               </button>
             </div>
