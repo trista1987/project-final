@@ -15,13 +15,14 @@ export const NavBar = () => {
 
   return (
     <div
-      className={`bg-navbar-default shadow-md hover:bg-navbar-hover w-full z-10 transition-colors duration-300 ${
-        hover ? "bg-navbar-hover" : "bg-navbar-default"
+      className={`bg-transparent shadow-md hover:bg-white w-full z-10 transition-colors duration-300 ${
+        hover ? "bg-white" : "bg-transparent"
       }`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+      {/* // <div className="bg-red-400 hover:bg-violet-600 w-full"> */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-auto">
         <div className="flex items-center">
           {hover ? <LogoFullBlack /> : <LogoFullWhite />}
           <nav className="hidden md:block ml-10 font-avenir">
@@ -30,8 +31,8 @@ export const NavBar = () => {
                 <li key={to}>
                   <Link
                     to={to}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-                      hover ? "text-fontColor" : "text-white"
+                    className={`px-[30px] py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                      hover ? "text-fontColor" : "text-cardBg"
                     }`}
                   >
                     {text}
@@ -45,8 +46,8 @@ export const NavBar = () => {
           <SignupBtn />
           <Link
             to="/login"
-            className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-              hover ? "text-fontColor" : "text-white"
+            className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 font-avenir ${
+              hover ? "text-fontColor" : "text-cardBg"
             }`}
           >
             Login

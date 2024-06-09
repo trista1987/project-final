@@ -39,10 +39,10 @@ export default {
         avenir: ["Avenir", "sans-serif"],
       },
       backgroundImage: {},
-      backgroundColor: {
-        // "navbar-hover": "#FFFFFF",
-        // "navbar-default": "rgba(255, 255, 255, .4)",
-      },
+      // backgroundColor: {
+      //   "navbar-hover": "#FFFFFF",
+      //   "navbar-default": "transparent",
+      // },
     },
   },
   plugins: ["prettier-plugin-tailwindcss"],
