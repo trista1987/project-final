@@ -4,7 +4,7 @@ export const SignupBtn = () => {
     return (
         <div>
             <Link to="/signup">
-                <button className="bg-blue-500 text-white p-2 rounded">Signup</button>
+                <button className="bg-blue-500 text-white p-2 rounded font-avenir">Signup</button>
             </Link>
         </div>
     )

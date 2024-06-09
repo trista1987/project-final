@@ -15,21 +15,23 @@ export const NavBar = () => {
 
   return (
     <div
-      className="bg-navbar-default shadow-md hover:bg-navbar-hover w-full z-10 transition-colors duration-300"
+      className={`bg-navbar-default shadow-md hover:bg-navbar-hover w-full z-10 transition-colors duration-300 ${
+        hover ? "bg-navbar-hover" : "bg-navbar-default"
+      }`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         <div className="flex items-center">
-          {hover ? <LogoFullWhite /> : <LogoFullBlack />}
-          <nav className="hidden md:block ml-10">
+          {hover ? <LogoFullBlack /> : <LogoFullWhite />}
+          <nav className="hidden md:block ml-10 font-avenir">
             <ul className="flex space-x-4">
               {links.map(({ to, text }) => (
                 <li key={to}>
                   <Link
                     to={to}
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-                      hover ? "text-white" : "text-fontColor"
+                      hover ? "text-fontColor" : "text-white"
                     }`}
                   >
                     {text}
@@ -44,7 +46,7 @@ export const NavBar = () => {
           <Link
             to="/login"
             className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-              hover ? "text-white" : "text-fontColor"
+              hover ? "text-fontColor" : "text-white"
             }`}
           >
             Login

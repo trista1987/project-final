@@ -40,8 +40,8 @@ export default {
       },
       backgroundImage: {},
       backgroundColor: {
-        "navbar-hover": "#FFFFFF",
-        "navbar-default": "transparent",
+        // "navbar-hover": "#FFFFFF",
+        // "navbar-default": "rgba(255, 255, 255, .4)",
       },
     },
   },

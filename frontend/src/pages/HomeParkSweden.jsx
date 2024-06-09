@@ -11,9 +11,7 @@ export const HomePageSweden = () => {
 
   return (
     <div
-      className="relative w-full md:w-2/3 flex flex-col md:flex-row md:pt-20"
-      style={{ marginTop: "50px" }}
-    >
+      className="relative w-full md:w-2/3 flex flex-col md:flex-row md:pt-[60px]">
       <div className="flex-1 h-[600px]">
         <img
           src={textImg}
