@@ -15,18 +15,17 @@ export const NavBar = () => {
 
   return (
     <div
-      className={`bg-transparent shadow-md hover:bg-white w-full z-10 transition-colors duration-300 ${
+      className={`transition-colors duration-300 ${
         hover ? "bg-white" : "bg-transparent"
       }`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      {/* // <div className="bg-red-400 hover:bg-violet-600 w-full"> */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div className="flex items-center">
           {hover ? <LogoFullBlack /> : <LogoFullWhite />}
           <nav className="hidden md:block ml-10 font-avenir">
-            <ul className="flex space-x-4">
+            <ul className="flex space-x-4 ">
               {links.map(({ to, text }) => (
                 <li key={to}>
                   <Link
