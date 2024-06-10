@@ -2,7 +2,7 @@ import { DevCard } from "../components/DevCard";
 import { Footer } from "../components/Footer";
 import { ScrollToTop } from "../components/buttons/ToTopBtn";
 import { Link } from "react-router-dom";
-import { WebName } from "../components/WebName";
+import { NavBarNoHover } from "../components/NavBarNoHover"
 
 export const AboutPage = () => {
   const links = [
@@ -14,18 +14,7 @@ export const AboutPage = () => {
 
   return (
     <>
-      <div className="park-nav">
-        <WebName />
-        <nav>
-          <ul className="navbar">
-            {links.map(({ to, text }) => (
-              <li key={to} className="nav-li">
-                <Link to={to}>{text}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+      <NavBarNoHover />
       <div>
         <h2>
           Hello👋
@@ -41,16 +30,15 @@ export const AboutPage = () => {
       <div>
         <h3>About us</h3>
         <p>
-          The best place to relax your senses and enjoy the beautiful and
-          pristine Finnish nature is the National Parks. There are 41 nature
-          reserves in Finland - all of them are free to enter and open
-          year-round with marked trails.
+          We both have studied and worked in Sweden and Finland for almost five
+          years. Coming from similar cultural background, we found many
+          similarities in our Nordic journey. But one thing we both agree is the
+          beauty of Nordic nature.
         </p>
         <p>
-          A visit to any of the parks is sure to grow your love of the great
-          outdoors even more. Learn more about National Parks in different
-          regions below and search for the one nearest to your travel
-          destination.
+          The website is inspired by 
+          <a href="https://www.visitfinland.com/en/"> Visit Finland</a> and all photos are from real images from the parks.
+          We keep all the photo credits here. Thank you all for visiting and we hope you find your next destination here.
         </p>
       </div>
       <div>
