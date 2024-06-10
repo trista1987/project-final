@@ -4,7 +4,7 @@ export const LogoFullWhite = () => {
       <img
         src="/logo/Logo-full-white.png"
         alt="Logo Full White"
-        className="w-[200px] h-auto"
+        className="md:w-[180px] h-auto sm:w-[120px]"
       />
     </div>
   );

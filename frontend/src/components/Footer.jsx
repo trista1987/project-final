@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import { Contact } from "./Contact";
-import { LogoFullBlack } from "./iconFolder/LogoFullBlack";
 
 export const Footer = ({className}) => {
   const links = [
@@ -35,7 +34,7 @@ export const Footer = ({className}) => {
             src="/logo/Logo-full-black.png"
             alt="logo-black"
             style={{ width: "200px" }}
-          />
+          /> 
           {/* <h2 className="text-h2sm lg:text-h2lg pb-[30px]">ParkHive</h2>  */}
           <div className="flex flex-row place-content-start gap-x-[150px]">
             <ul className="sm:text-textmd text-textmd md:pl-[10px]">
