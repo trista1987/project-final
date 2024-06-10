@@ -4,7 +4,7 @@ import { Footer } from "../components/Footer";
 import { Weather } from "../components/Weather";
 import { AllParkSlides } from "../components/parkComponents/AllParkSlides";
 import { HomePageFinland } from "../components/HomePageFinland";
-import { HomePageSweden } from "./HomeParkSweden";
+import { HomePageSweden } from "../components/HomeParkSweden";
 
 export const HomePage = () => {
   return (

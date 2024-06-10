@@ -10,8 +10,7 @@ export const HomePageSweden = () => {
   const btnName = "Visit Sweden";
 
   return (
-    <div
-      className="relative w-full md:w-2/3 flex flex-col md:flex-row md:pt-[60px]">
+    <div className="relative w-full md:w-2/3 flex flex-col md:flex-row md:mt-[60px] sm:mt-[0px] mb-[70px]">
       <div className="flex-1 h-[600px]">
         <img
           src={textImg}
@@ -40,7 +39,7 @@ export const HomePageSweden = () => {
 
           <Link to={linkTo}>
             <div style={{ margin: "16px", marginBottom: "50px" }}>
-              <button className="bg-bg1 text-bg2 font-avenir font-bold rounded-lg md:text-lg py-2 px-2">
+              <button className="bg-bg1 text-bg2 font-avenir font-bold rounded-lg md:text-lg py-[12px] px-[10px] transition-transform duration-300 hover:scale-105">
                 {btnName}
               </button>
             </div>
