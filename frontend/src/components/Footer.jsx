@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Contact } from "./Contact";
+import { LogoFullBlack } from "./iconFolder/LogoFullBlack";
 
 export const Footer = ({className}) => {
   const links = [
@@ -28,20 +29,24 @@ export const Footer = ({className}) => {
   }
   return (
     <>
-  
       <div className={`${bgColor} ${textColor} ${className} p-3 `}>
         <div className="flex flex-col ">
-          <h2 className="text-h2sm lg:text-h2lg pb-[30px]">ParkHive</h2> 
+          <img
+            src="/logo/Logo-full-black.png"
+            alt="logo-black"
+            style={{ width: "200px" }}
+          />
+          {/* <h2 className="text-h2sm lg:text-h2lg pb-[30px]">ParkHive</h2>  */}
           <div className="flex flex-row place-content-start gap-x-[150px]">
-            <ul className="sm:text-textmd text-textmd">
-            {links.map(({ to, text }) => (
-              <li key={to} className="nav-li">
-                <Link to={to}>{text}</Link>
-              </li>
-            ))}
-          </ul>
-          <Contact />
-          </div> 
+            <ul className="sm:text-textmd text-textmd md:pl-[10px]">
+              {links.map(({ to, text }) => (
+                <li key={to} className="nav-li">
+                  <Link to={to}>{text}</Link>
+                </li>
+              ))}
+            </ul>
+            <Contact />
+          </div>
         </div>
         <footer className="text-center">
           <p>Created by Trista Shan & Yia Tsai</p>
