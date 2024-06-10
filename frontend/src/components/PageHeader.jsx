@@ -1,6 +1,7 @@
 import React from "react";
 import { NavBar } from "./NavBar";
 import Pageheader from "./Pageheader.json";
+import { NavBarNoHover } from "./NavBarNoHover"
 
 export const PageHeader = ({ placeName }) => {
   const header = Pageheader.headers.find((h) => h.placeName === placeName);
@@ -12,7 +13,7 @@ export const PageHeader = ({ placeName }) => {
   console.log("imageUrl:", imageUrl);
   return (
     <>
-      <NavBar />
+      <NavBarNoHover />
       <div
         className={`bg-cover bg-center text-cardBg py-10 px-4 text-center min-h-screen flex items-center justify-center bg-opacity-50 sm:px-4`}
         style={{ backgroundImage: `url(${imageUrl})` }}
