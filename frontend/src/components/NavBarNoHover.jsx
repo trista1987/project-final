@@ -28,7 +28,7 @@ export const NavBarNoHover = () => {
                 <li key={to}>
                   <Link
                     to={to}
-                    className="px-[30px] py-[10px] rounded-md text-sm text-fontColor"
+                    className="px-[30px] py-[10px] rounded-md text-sm text-fontColor transition-transform duration-300 hover:scale-105"
                   >
                     {text}
                   </Link>
@@ -40,13 +40,13 @@ export const NavBarNoHover = () => {
         <div className="hidden md:flex items-center space-x-[16px]">
           <Link
             to="/signup"
-            className="px-[15px] py-[7px] rounded-3xl border-2 border-fontColor text-sm font-medium text-fontColor font-avenir"
+            className="px-[15px] py-[7px] rounded-3xl border-2 border-fontColor text-sm font-medium text-fontColor font-avenir transition-transform duration-300 hover:scale-105"
           >
             Sign Up
           </Link>
           <Link
             to="/login"
-            className="px-[12px] py-[10px] rounded-md text-sm font-medium text-fontColor font-avenir"
+            className="px-[12px] py-[10px] rounded-md text-sm font-medium text-fontColor font-avenir transition-transform duration-300 hover:scale-105"
           >
             Login
           </Link>
