@@ -37,6 +37,7 @@ export default {
       2: "8px",
       3: "16px",
       4: "100px",
+      5: "80px"
     },
     extend: {
       fontFamily: {
