@@ -46,6 +46,6 @@ export const ParkInfoPage = () => {
         <p>{parkInfo.introduction}</p>
         <ParkImage name={parkInfo.name} alt={`${parkInfo.name}`} />
       </div>
-    </>
+ha    </>
   );
 };

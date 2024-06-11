@@ -53,6 +53,7 @@ const User = mongoose.model ("User", userSchema)
 
 //seed the database
 if(process.env.RESET_DATABASE){
+  console.log("restting database")
   const seedDatabase = async() => {
 
     await Park.deleteMany()
