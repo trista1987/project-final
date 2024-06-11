@@ -14,6 +14,7 @@ export const PageHeader = ({ placeName }) => {
   return (
     <>
       <NavBarNoHover />
+
       <div
         className={`bg-cover bg-center text-cardBg py-10 px-4 text-center min-h-screen flex items-center justify-center bg-opacity-50 sm:px-4`}
         style={{ backgroundImage: `url(${imageUrl})` }}
