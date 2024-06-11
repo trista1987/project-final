@@ -38,7 +38,10 @@ export default {
       fontFamily: {
         avenir: ["Avenir", "sans-serif"],
       },
-      backgroundImage: {},
+      backgroundImage: {
+        "login-image": "url('/backgroundImages/hero-login.jpg')",
+        "signup-image": "url('/hero-signup.jpg')"
+      },
       // backgroundColor: {
       //   "navbar-hover": "#FFFFFF",
       //   "navbar-default": "transparent",
