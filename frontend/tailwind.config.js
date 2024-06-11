@@ -36,6 +36,7 @@ export default {
       1: "5px",
       2: "8px",
       3: "16px",
+      4: "100px",
     },
     extend: {
       fontFamily: {
@@ -43,6 +44,15 @@ export default {
       },
       backgroundImage: {
 
+      },
+      gridTemplateColumns: {
+        "6": "repeat(6, minmax(0, 1fr))",
+        "11": "repeat(12, minmax(0, 1fr))",
+      },
+      gridTemplateRows: {
+        "12": "repeat(12, minmax(0, 100px))",
+        "14": "repeat(14, minmax(0, 200px))",
+        "13": "repeat(11, minmax(0, 100px))"
       }
     },
   },

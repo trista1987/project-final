@@ -103,7 +103,7 @@ export const ParkSlides = ({ nation }) => {
                 </h3>
               </Link>
               <p className="sm:text-textsm md:text-textmd lg:text-textmd text-fontColor break-words text-center">
-                {park.introduction.slice(0, 80)}
+                {park.introduction.slice(0, 80)}...
               </p>
             </div>
           ))}
