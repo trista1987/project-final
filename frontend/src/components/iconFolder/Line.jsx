@@ -1,7 +1,7 @@
-export const Line = ({ stroke = "#020209" }) => {
+export const Line = ({ stroke = "#020209", width="363" }) => {
   return (
     <svg
-      width="363"
+      width={width}
       height="2"
       viewBox="0 0 363 2"
       fill="none"
