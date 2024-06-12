@@ -35,12 +35,14 @@ export const AboutPage = () => {
           </p>
         </div>
       </div>
-      <div className="mt-[90px] md:ml-[70px] md:mb-[50px] sm:w-[390px] sm:ml-[20px]">
-        <Line />
-        <h2 className="lg:text-h2lg md:text-h2md sm:text-h2sm font-avenir">
-          About us
-        </h2>
-        <p className="font-avenir lg:text-textlg md:text-textmd sm:text-textsm md:w-[700px] items-end sm:w-[300px] mb-[50px]">
+      <div className="mt-[90px] md:ml-[70px] md:mb-[50px] sm:w-[390px] sm:ml-[20px] flex flex-col">
+        <div className="shrink-0">
+          <Line />
+          <h2 className="lg:text-h2lg md:text-h2md sm:text-h2sm font-avenir mr-[20px]">
+            About us
+          </h2>
+        </div>
+        <p className="font-avenir lg:text-textlg md:text-textmd sm:text-textsm md:w-[1000px] sm:w-[300px] mb-[50px]">
           We both have studied and worked in Sweden and Finland for almost five
           years. Coming from similar cultural background, we found many
           similarities in our Nordic journey. But one thing we both agree is the
@@ -57,7 +59,7 @@ export const AboutPage = () => {
         <img
           src="/backgroundImages/default-image.jpg"
           alt="default-image"
-          className="md:w-[640px] h-auto object-cover sm:w-[300px]"
+          className="md:w-[840px] h-auto object-cover sm:w-[300px]"
         />
       </div>
       <div className="flex flex-col items-center justify-center my-[30px] md:py-[40px]">
