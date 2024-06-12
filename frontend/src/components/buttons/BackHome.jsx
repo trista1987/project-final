@@ -1,13 +1,21 @@
-import { useNavigate } from 'react-router-dom'
-import {BackArrow} from "../iconFolder/BackArrow"
+import { useNavigate, useLocation } from "react-router-dom";
+import { BackArrow } from "../iconFolder/BackArrow";
 
-export const BackHome = ({className}) => {
-    const navigate = useNavigate()
+export const BackHome = ({ className }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    return (
-        <button onClick={()=>navigate("/")} className={`${className}`}>
-            <BackArrow />
-            <p className="text-textlg">Back to home</p>
-        </button>
-    )
-}
+  let arrowColor;
+  if (location.pathname === "/login") {
+    arrowColor = "#FFFFFF";
+  } else if (location.pathname === "/signup") {
+    arrowColor = "#020209";
+  }
+
+  return (
+    <button onClick={() => navigate("/")} className={`${className}`}>
+      <BackArrow fill={`${arrowColor}`} />
+      <p className="text-textlg">Back to home</p>
+    </button>
+  );
+};
