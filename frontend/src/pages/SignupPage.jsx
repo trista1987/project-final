@@ -1,7 +1,9 @@
 import { useUserStore } from "../store/useStore";
-import { useState} from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
+import { BackHome } from "../components/buttons/BackHome";
+import { ColorCheckbox } from "../components/CheckBox";
 
 export const Signup = () => {
   const {
@@ -15,30 +17,27 @@ export const Signup = () => {
     setPassword,
     setEmail,
     // authToken
-  
   } = useUserStore();
 
   const [confirmPassword, setConfirmPassowrd] = useState("");
   const navigate = useNavigate();
 
-
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
-       return alert ("Password do not match."); 
+      return alert("Password do not match.");
     }
     await userSignup(name, email, password);
-    if(!error){
-        navigate("/logged")
+    if (!error) {
+      navigate("/logged");
     }
-  }
+  };
 
-//   useEffect(() => {
-//     if(authToken) {
-//         navigate("/logged")
-//     }
-//   }, [navigate])
+  //   useEffect(() => {
+  //     if(authToken) {
+  //         navigate("/logged")
+  //     }
+  //   }, [navigate])
 
   if (loading) {
     return <div>Loading...</div>;
@@ -50,68 +49,119 @@ export const Signup = () => {
 
   return (
     <>
-      <div>
-        <h2>Ready for an advanture?</h2>
-      </div>
-      <div>
-        <form onSubmit={handleSubmit} className="signup-wrapper">
-          <h3>Sign up</h3>
-          <div>
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="name"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="email">Email：</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="name@gmail.com"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password：</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="********"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="confirm-password">Re-enter Password：</label>
-            <input
-              type="password"
-              id="confirm-password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassowrd(e.target.value)}
-              placeholder="********"
-              required
-            />
-          </div>
-          <div>
-            <input type="checkbox" id="term" name="term" required />
-            <label htmlFor="term">I have read the term of use</label>
-          </div>
-          <button type="submit" >Sign Up</button>
-        </form>
-      </div>
-      <div>
-        <p>
-          Already have an account? Login <a href="/login">here</a>
-        </p>
-      </div>
+      <section className="relative flex flex-col justify-center items-center">
+        <div className="absolut bg-signup-image bg-cover bg-center right-0 top-0 object-cover sm:h-[180px] md:h-[315px] lg:h-[564px] w-full flex items-center justify-center">
+          <BackHome
+            className={
+              "text-fontColor flex flex-row gap-x-3 absolute left-[30px] top-[30px]"
+            }
+          />
+        </div>
+        <div className="text-center sm:p-[50px] p-[80px]">
+          <h2 className="sm:text-h2sm md:text-h2lg lg:text-h2lg">
+            Ready for an advanture?
+          </h2>
+        </div>
+        <div className="flex justify-center ">
+          <form
+            onSubmit={handleSubmit}
+            className="border-2 rounded-[30px] flex flex-col gap-y-[30px] sm:w-[390px] md:w-[834px] lg:w-[834px] items-center sm:py-[40px]"
+          >
+            <h2 className="sm:text-h2sm md:text-h2lg lg:text-h2lg">Sign up</h2>
+            <div className="flex flex-col">
+              <label
+                htmlFor="name"
+                className="text-fontColor sm:text-h2sm sm:pb-2 lg:text-h2md "
+              >
+                Name:
+              </label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="name"
+                required
+                className="border-2 rounded sm:w-[243px] sm:h-[43px] md:w-[300px] md:h-[40px] lg:w-[300px] lg:h-[40px]"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label
+                htmlFor="email"
+                className="text-fontColor sm:text-h2sm sm:pb-2 lg:text-h2md "
+              >
+                Email：
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="name@gmail.com"
+                required
+                className="border-2 rounded sm:w-[243px] sm:h-[43px] md:w-[300px] md:h-[40px] lg:w-[300px] lg:h-[40px]"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label
+                htmlFor="password"
+                className="text-fontColor sm:text-h2sm sm:pb-2 lg:text-h2md "
+              >
+                Password：
+              </label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="********"
+                required
+                className="border-2 rounded sm:w-[243px] sm:h-[43px] md:w-[300px] md:h-[40px] lg:w-[300px] lg:h-[40px]"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label
+                htmlFor="confirm-password"
+                className="text-fontColor sm:text-h2sm sm:pb-2 lg:text-h2md "
+              >
+                Re-enter Password：
+              </label>
+              <input
+                type="password"
+                id="confirm-password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassowrd(e.target.value)}
+                placeholder="********"
+                required
+                className="border-2 rounded sm:w-[243px] sm:h-[43px] md:w-[300px] md:h-[40px] lg:w-[300px] lg:h-[40px]"
+              />
+            </div>
+            <div className="flex flex-row ">
+              <ColorCheckbox />
+              <label
+                htmlFor="term"
+                className="text-fontColor content-center sm:text-textsm md:textmd lg:text-textmd px-2"
+              >
+                I have read the term of use
+              </label>
+            </div>
+            <button
+              type="submit"
+              className="text-cardBg bg-bg2 rounded sm:text-h2sm lg:text-h2md py-[5px] px-[10px]"
+            >
+              Sign Up
+            </button>
+          </form>
+        </div>
+        <div className="sm:p-3 sm:py-[50px] md:py-[60px]">
+          <p className="text-fontColor sm:text-textsm md:text-textmd lg:text-textmd">
+            Already have an account? Login{" "}
+            <a href="/login" className="text-bg2">
+              here
+            </a>
+          </p>
+        </div>
+      </section>
       <Footer />
     </>
   );
