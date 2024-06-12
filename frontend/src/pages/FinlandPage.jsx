@@ -11,7 +11,7 @@ export const FinlandPage = () => {
   return (
     <>
       <PageHeader placeName={"Finland"} />
-      <div className="mt-[80px]">
+      <div className="mt-[80px] px-[25px]">
         <Line />
         <CountryIntro
           topic={"Get close to nature"}

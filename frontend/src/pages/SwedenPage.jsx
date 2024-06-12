@@ -1,28 +1,42 @@
-import {Weather} from "../components/Weather"
-import { ParkSlides } from "../components/parkComponents/ParkSlides"
-import { PageHeader } from "../components/PageHeader"
-import { CountryIntro } from "../components/CountryIntro"
-import { MidBanner } from "../components/MidBanner"
-import { ScrollToTop } from "../components/buttons/ToTopBtn"
-import { Footer } from "../components/Footer"
+import { Weather } from "../components/Weather";
+import { ParkSlides } from "../components/parkComponents/ParkSlides";
+import { PageHeader } from "../components/PageHeader";
+import { CountryIntro } from "../components/CountryIntro";
+import { MidBannerSweden } from "../components/MidBannerSweden";
+import { ScrollToTop } from "../components/buttons/ToTopBtn";
+import { Footer } from "../components/Footer";
+import { Line } from "../components/iconFolder/Line";
+
 export const SwedenPage = () => {
-    return (
-        <>
-        <PageHeader placeName={"Sweden"} />
-        <CountryIntro topic={"Get close to nature"} text={"The best place to relax your senses and enjoy the beautiful and pristine Finnish nature is the National Parks. There are 41 nature reserves in Finland - all of them are free to enter and open year-round with marked trails.A visit to any of the parks is sure to grow your love of the great outdoors even more. Learn more about National Parks in different regions below and search for the one nearest to your travel destination."} countryIntroImg={""} countryIntroImgAlt={""}/>
-        <MidBanner MidBannerText={"There are 41 National Parks in Finland. The first ones - Pallas-Ounastunturi and Pyhä - were founded in 1938."} />
-        <ParkSlides nation={"sweden"}/>
-        <div className="lg:relative md:relative">
-            <Weather
-              city={"Stockholm"}
-              timezone={"Europe/Stockholm"}
-              className="lg:absolute md:absolute bottom-[100px] right-[0px]"
-            />
-            <Footer />
-       </div>
-       <ScrollToTop />
-       
-        
-        </>
-    )
-}
+  return (
+    <>
+      <PageHeader placeName={"Sweden"} />
+      <div className="mt-[80px] px-[25px]">
+        <Line />
+        <CountryIntro
+          topic={"Get close to nature"}
+          text={
+            "The best place to unwind and soak in the beauty of Sweden's pristine nature is its National Parks. Sweden has 30 National Parks, all free to enter and open year-round with well-marked trails. A visit to any of these parks is guaranteed to deepen your appreciation for the great outdoors. Explore the National Parks in different regions below and find the perfect one closest to your travel plans!"
+          }
+          countryIntroImg={"/backgroundImages/sweden-page.jpg"}
+          countryIntroImgAlt={""}
+        />
+      </div>
+      <MidBannerSweden
+        MidBannerText={
+          "“There is something of the freshness of mind, of the lightness of spirit in Linne which for centuries has been linked in people’s minds with the mountains of Sweden and Swedish joy in nature.” – Johannes Vilhelm Jensen"
+        }
+      />
+      <ParkSlides nation={"sweden"} />
+      <div className="lg:relative md:relative">
+        <Weather
+          city={"Stockholm"}
+          timezone={"Europe/Stockholm"}
+          className="lg:absolute md:absolute bottom-[100px] right-[0px]"
+        />
+        <Footer />
+      </div>
+      <ScrollToTop />
+    </>
+  );
+};
