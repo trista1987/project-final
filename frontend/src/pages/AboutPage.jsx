@@ -49,10 +49,16 @@ export const AboutPage = () => {
           beauty of Nordic nature.
           <br />
           The website is inspired by
-          <a href="https://www.visitfinland.com/en/"> Visit Finland</a> and all
-          photos are from real images from the parks. We keep all the photo
-          credits here. Thank you all for visiting and we hope you find your
-          next destination here.
+          <a
+            href="https://www.visitfinland.com/en/"
+            className="text-bg2 font-semibold"
+          >
+            {" "}
+            Visit Finland
+          </a>{" "}
+          and all photos are from real images from the parks. We keep all the
+          photo credits here. Thank you all for visiting and we hope you find
+          your next destination here.
         </p>
       </div>
       <div className="flex flex-col items-center justify-center">
