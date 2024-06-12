@@ -40,7 +40,7 @@ export default {
       },
       backgroundImage: {
         "login-image": "url('/backgroundImages/hero-login.jpg')",
-        "signup-image": "url('/hero-signup.jpg')"
+        "signup-image": "url('/backgroundImages/hero-signup.jpg')"
       },
       // backgroundColor: {
       //   "navbar-hover": "#FFFFFF",
