@@ -15,7 +15,7 @@ export const HomePageFinland = () => {
         <div className="z-10 relative md:absolute md:top-1/2 md:left-1/2 transform md:-translate-x-2/4 md:-translate-y-1/2 bg-bg1 md:rounded-lg flex flex-col justify-center md:p-12">
           <h2
             className="lg:text-h2lg md:text-h2md sm:text-h2sm font-avenir text-fontColor md:p-[16px] md:mt-[8px]"
-            style={{ margin: "16px", paddingTop: "8px" }}
+            style={{ margin: "8px", paddingTop: "8px" }}
           >
             {textTitle}
           </h2>
