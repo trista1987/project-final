@@ -2,6 +2,8 @@ import { Footer } from "../components/Footer";
 import { BackHome } from "../components/buttons/BackHome";
 import { useUserStore } from "../store/useStore";
 import { useNavigate } from "react-router-dom";
+import Lottie from "lottie-react"
+import Loading from "../assets/loading.json"
 
 export const Login = () => {
   const { loading, error, password, email, userLogin, setPassword, setEmail } =
@@ -20,7 +22,10 @@ export const Login = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (<Lottie animationData={Loading}
+    loop={true}
+    className="w-[300px] h-[300px]"
+    />)
   }
 
   if (error) {
