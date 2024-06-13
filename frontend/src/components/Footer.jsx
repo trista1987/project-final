@@ -1,7 +1,10 @@
+
 import { Link, useLocation } from "react-router-dom";
 import { Contact } from "./Contact";
+import { LogoFullBlack } from "../components/iconFolder/LogoFullBlack";
+import { LogoFullWhite } from "../components/iconFolder/LogoFullWhite";
 
-export const Footer = ({className}) => {
+export const Footer = ({ className }) => {
   const links = [
     { to: "/finland", text: "Finland" },
     { to: "/sweden", text: "Sweden" },
@@ -12,30 +15,22 @@ export const Footer = ({className}) => {
 
   let bgColor;
   let textColor;
-  if (location.pathname === "/sweden" || location.pathname === "/signup") {
+  let useWhiteLogo =
+    location.pathname === "/sweden" || location.pathname === "/signup";
+
+  if (useWhiteLogo) {
     bgColor = "bg-bg2";
     textColor = "text-cardBg";
-  } else if (
-    location.pathname === "/finland" ||
-    location.pathname === "/" ||
-    location.pathname === "/about" ||
-    location.pathname === "/login" ||
-    location.pathname === "/logged" ||
-    location.pathname === "*"
-  ) {
+  } else {
     bgColor = "bg-bg1";
     textColor = "text-fontColor";
   }
+
   return (
     <>
       <div className={`${bgColor} ${textColor} ${className} p-3 `}>
         <div className="flex flex-col ">
-          <img
-            src="/logo/Logo-full-black.png"
-            alt="logo-black"
-            style={{ width: "200px" }}
-          /> 
-          {/* <h2 className="text-h2sm lg:text-h2lg pb-[30px]">ParkHive</h2>  */}
+          {useWhiteLogo ? <LogoFullWhite /> : <LogoFullBlack />}
           <div className="flex flex-row place-content-start gap-x-[150px]">
             <ul className="sm:text-textmd text-textmd md:pl-[10px]">
               {links.map(({ to, text }) => (
