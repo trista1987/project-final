@@ -81,7 +81,7 @@ export const AboutPage = () => {
       </div>
       <div className="flex flex-col items-center justify-center my-[30px] md:py-[40px]">
         <DevCard
-          devImage={"/developerImages/trista.jpeg"}
+          devImage={"/developerImages/trista.jpg"}
           devName={"Trista"}
           developerName={"Trista Shan"}
           devIntro={"Web Developer based in Helsinki, Finland"}
