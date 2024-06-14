@@ -69,7 +69,7 @@ export const Weather = ({ city, timezone, className }) => {
             ) : description === "Rain" ||
               description === "Drizzle" ||
               description === "Thunderstorm" ||
-              "Light rain" ? (
+              description === "Light rain" ? (
               <Rain stroke={iconColor} />
             ) : description === "Clouds" ||
               description === "Fog" ||
