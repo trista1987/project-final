@@ -19,10 +19,11 @@ export const ParkSlides = ({ nation }) => {
   }, [fetchParkData, nation]);
 
   if (loading) {
-    return (
-      <Lottie animationData={Loading}
-      loop={true}
-      />
+    return (<div>
+      {loading && (<Lottie animationData={Loading}
+      loop={true} className="w-[300px] h-[300px]"
+      />)}
+    </div>
     );
   }
 
