@@ -4,20 +4,66 @@ import { useUserStore } from "../store/useStore";
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react"
 import Loading from "../assets/loading.json"
+import {useState} from "react"
 
 export const Login = () => {
-  const { loading, error, password, email, userLogin, setPassword, setEmail } =
-    useUserStore();
+  // const { loading, error, password, email, userLogin, setPassword, setEmail } =
+  //   useUserStore();
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate();
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    await userLogin();
-    if (!error) {
-      navigate("/logged");
-    } else {
-      navigate("/signup");
+    // await userLogin();
+    // if (!error) {
+    //   navigate("/logged");
+    // } else {
+    //   navigate("/signup");
+    // }
+    // fetch("https://parkhive.onrender.com/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     email: e.target.email.value,
+    //     password: e.target.password.value
+    //   })
+    // })
+    // .then((res) => res.json())
+    // .then((res)=> {
+    //   console.log(res)
+    //   localStorage.setItem("token", res.token)
+    //   navigate("/logged")
+    // })
+    try{
+      const res = await fetch ("https://parkhive.onrender.com/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: e.target.email.value,
+          password: e.target.password.value
+        })
+      })
+      if(!res.ok) {
+        const errorData = await res.json()
+        throw new Error (errorData.message || "Failed to login")
+      }
+      const data = await res.json()
+      console.log(data)
+      localStorage.setItem("token", res.token)
+      localStorage.setItem("user", res.name)
+      navigate("/logged")
+    } catch(error) {
+      console.error("Login error:", error)
+      alert("Login failed:" + error.message)
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -30,9 +76,9 @@ export const Login = () => {
     );
   }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  // if (error) {
+  //   return <div>Error: {error}</div>;
+  // }
 
   return (
     <>

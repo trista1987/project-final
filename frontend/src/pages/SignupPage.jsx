@@ -1,51 +1,66 @@
 import { useUserStore } from "../store/useStore";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { BackHome } from "../components/buttons/BackHome";
 import { ColorCheckbox } from "../components/CheckBox";
 
 export const Signup = () => {
-  const {
-    loading,
-    error,
-    name,
-    password,
-    email,
-    userSignup,
-    setName,
-    setPassword,
-    setEmail,
-    // authToken
-  } = useUserStore();
-
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassowrd] = useState("");
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+
+
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    const newUser = {name, email, password}
     if (password !== confirmPassword) {
-      return alert("Password do not match.");
-    }
-    await userSignup(name, email, password);
-    if (!error) {
-      navigate("/logged");
-    }
-  };
+          return alert("Password do not match.");
+        }
 
-  //   useEffect(() => {
-  //     if(authToken) {
-  //         navigate("/logged")
-  //     }
-  //   }, [navigate])
+    try{
+      const res = await fetch("https://parkhive.onrender.com/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newUser)
+      })
+      if(!res.ok) {
+        const errorData = await res.json()
+        throw new Error (errorData.message || "Failed to register")
+      }
+      const data = await res.json()
+      console.log("Register successful:", data)
+      navigate("/login")
+    } catch(error){
+      console.error("Registration error:", error)
+      alert("Registration failed:" + error.message)
+    } finally{
+      setLoading(false)
+    }
+  }
+  
+  useEffect(() => {
+    if(localStorage.getItem("Net-Token")) {
+      navigate("/")
+    }
+  }, [navigate])
+
+
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  // if (error) {
+  //   return <div>Error: {error}</div>;
+  // }
 
   return (
     <>
