@@ -1,4 +1,4 @@
-import { useUserStore } from "../store/useStore";
+// import { useUserStore } from "../store/useStore";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
@@ -12,8 +12,6 @@ export const Signup = () => {
   const [confirmPassword, setConfirmPassowrd] = useState("");
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
-
-
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -37,6 +35,7 @@ export const Signup = () => {
       }
       const data = await res.json()
       console.log("Register successful:", data)
+      localStorage.setItem("Net-Token", data.token)
       navigate("/login")
     } catch(error){
       console.error("Registration error:", error)
@@ -45,14 +44,6 @@ export const Signup = () => {
       setLoading(false)
     }
   }
-  
-  useEffect(() => {
-    if(localStorage.getItem("Net-Token")) {
-      navigate("/")
-    }
-  }, [navigate])
-
-
 
   if (loading) {
     return <div>Loading...</div>;

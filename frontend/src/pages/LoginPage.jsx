@@ -56,8 +56,9 @@ export const Login = () => {
       }
       const data = await res.json()
       console.log(data)
-      localStorage.setItem("token", res.token)
-      localStorage.setItem("user", res.name)
+      localStorage.setItem("Net-Token", data.token)
+      localStorage.setItem("user", data.email)
+      console.log(localStorage.getItem("Net-Token"))
       navigate("/logged")
     } catch(error) {
       console.error("Login error:", error)
