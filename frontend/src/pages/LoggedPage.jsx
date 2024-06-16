@@ -1,9 +1,42 @@
 import { Footer } from "../components/Footer";
 import { Line } from "../components/iconFolder/Line";
 import { NavBarLogedIn } from "../components/NavBarLogedIn";
+import { useState, useEffect } from "react";
 
 export const LoggedPage = () => {
+  const [data, setData] = useState(null);
+  const [status, setStatus] = useState(null);
   const emptyState = "./backgroundImages/hiking.jpg";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = localStorage.getItem("Net-Token");
+        const res = await fetch("https://parkhive.onrender.com/secrets", {
+          headers: {
+            Authorization: `${token}`,
+          },
+        });
+
+        setStatus(res.status);
+        if (res.ok) {
+          const data = await res.json();
+          setData(data.message);
+        } else {
+          const errorData = await res.json();
+          console.error("Fetch error:", errorData.message || "Unknown error");
+        }
+      } catch (error) {
+        console.error("Fetch failed:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (status === 401) {
+    alert ("Unauthorized")
+  }
 
   return (
     <>
@@ -13,6 +46,7 @@ export const LoggedPage = () => {
           <h1 className="sm:text-h2sm md:text-h2lg lg:text-h2lg font-avenir text-center ">
             Save your next destination here
           </h1>
+          <div>{data}</div>
           <div className="flex flex-row sm:gap-x-[30px] sm:p-[30px]">
             <button className="text-fontColor sm:text-textsm md:textmd lg:text-textmd">
               All

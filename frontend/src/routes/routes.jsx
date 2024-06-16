@@ -12,9 +12,9 @@ import { NotFoundPage } from "../pages/NotFoundPage";
 
 // import { ProtectedRoute } from "./pages/ProtectedRoute";
 
-const checkAuth = () => {
-  return localStorage.getItem("Net-Token") != null;
-};
+// const checkAuth = () => {
+//   return localStorage.getItem("Net-Token") != null;
+// };
 
 export const routes = (
   <>
@@ -24,14 +24,14 @@ export const routes = (
     <Route path="/about" element={<AboutPage />} />
     <Route path="/signup" element={<Signup />} />
     <Route path="/login" element={<Login />} />
-    <Route
+    {/* <Route
       path="/login"
       element={checkAuth() ? <Navigate to="/logged" /> : <Login />}
     />
     <Route
       path="/signup"
       element={checkAuth() ? <Navigate to="/login" /> : <Signup />}
-    />
+    /> */}
     <Route path="/logged" element={<LoggedPage />} />
 
     {/* <Route path="/logged" element={
