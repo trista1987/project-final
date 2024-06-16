@@ -2,16 +2,15 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LogoFullBlack } from "./iconFolder/LogoFullBlack";
 import { Hamburger } from "./buttons/Hamburger";
+import { useAuthData } from "../contexts/AuthContext";
+import {useLocation} from "react-router-dom"
 
 export const NavBarLogedIn = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
   const navigate = useNavigate();
-
-  const logout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
+  const {logout} = useAuthData()
+  const location = useLocation()
 
   const links = [
     { to: "/", text: "Home" },
@@ -45,12 +44,20 @@ export const NavBarLogedIn = () => {
         </div>
         <div className="hidden md:flex items-center space-x-[16px]">
           <Link
-            to="/Login"
+            to="/"
             className="px-[15px] py-[7px] rounded-3xl border-2 border-fontColor text-sm font-medium text-fontColor font-avenir transition-transform duration-300 hover:scale-105"
-            onClick={logout}
+            onClick={() => logout()}
           >
             Logout
           </Link>
+          {location.pathname !== "/logged" && (
+            <Link
+              to="/logged"
+              className="px-[10px] py-[5px] md:px-[12px] md:py-[5px] rounded-md text-sm font-medium text-fontColor font-avenir transition-transform duration-300 hover:scale-105"
+            >
+              MyAccount
+            </Link>
+          )}
         </div>
       </div>
       {/* Mobile Menu, placed right below the navbar */}
@@ -80,6 +87,17 @@ export const NavBarLogedIn = () => {
               >
                 Logout
               </Link>
+            </li>
+            <li className="text-left">
+              {location.pathname !== "/logged" && (
+                <Link
+                  to="/logged"
+                  className="px-[30px] py-[10px] text-sm font-medium font-avenir text-fontColor block"
+                  onClick={() => setIsOpen(false)}
+                >
+                  MyAccount
+                </Link>
+              )}
             </li>
           </ul>
         </nav>

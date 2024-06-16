@@ -1,11 +1,14 @@
 import React from "react";
 import { NavBar } from "./NavBar";
 import Pageheader from "./Pageheader.json";
-import { NavBarNoHover } from "./NavBarNoHover"
+import { NavBarNoHover } from "./NavBarNoHover";
+import { useAuthData } from "../contexts/AuthContext";
+import { NavBarLogedIn } from "./NavBarLogedIn";
 
 export const PageHeader = ({ placeName }) => {
   const header = Pageheader.headers.find((h) => h.placeName === placeName);
   const imageUrl = header ? header.imageUrl : "default-image.jpg";
+  const { user } = useAuthData();
 
   // Add debug logs
   console.log("placeName:", placeName);
@@ -13,7 +16,7 @@ export const PageHeader = ({ placeName }) => {
   console.log("imageUrl:", imageUrl);
   return (
     <>
-      <NavBarNoHover />
+      {user ? <NavBarLogedIn /> : <NavBarNoHover />}
 
       <div
         className={`bg-cover bg-center text-cardBg py-10 px-4 text-center min-h-screen flex items-center justify-center bg-opacity-50 sm:px-4`}

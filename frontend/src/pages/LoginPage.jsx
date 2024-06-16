@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react"
 import Loading from "../assets/loading.json"
 import {useState} from "react"
+import { useAuthData } from "../contexts/AuthContext";
 
 export const Login = () => {
   // const { loading, error, password, email, userLogin, setPassword, setEmail } =
@@ -12,6 +13,7 @@ export const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
+  const {login} = useAuthData()
 
   const navigate = useNavigate();
 
@@ -56,8 +58,9 @@ export const Login = () => {
       }
       const data = await res.json()
       console.log(data)
-      localStorage.setItem("Net-Token", data.token)
-      localStorage.setItem("user", data.email)
+      // localStorage.setItem("Net-Token", data.token)
+      // localStorage.setItem("user", data.email)
+      login(data.email, data.token)
       console.log(localStorage.getItem("Net-Token"))
       navigate("/logged")
     } catch(error) {
@@ -136,9 +139,10 @@ export const Login = () => {
             </div>
             <button
               type="submit"
+              disabled={loading}
               className="text-bg2 bg-bg1 rounded sm:text-h2sm lg:text-h2md py-[5px] px-[10px]"
             >
-              Login
+              {loading? "Logging in..." : "Login"}
             </button>
           </form>
         </div>

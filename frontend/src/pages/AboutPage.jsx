@@ -4,6 +4,8 @@ import { ScrollToTop } from "../components/buttons/ToTopBtn";
 import { Link } from "react-router-dom";
 import { NavBarNoHover } from "../components/NavBarNoHover";
 import { Line } from "../components/iconFolder/Line";
+import { useAuthData } from "../contexts/AuthContext";
+import {NavBarLogedIn} from "../components/NavBarLogedIn"
 
 export const AboutPage = () => {
   const links = [
@@ -13,9 +15,11 @@ export const AboutPage = () => {
     { to: "/about", text: "About us" },
   ];
 
+  const {user} = useAuthData()
+
   return (
     <>
-      <NavBarNoHover />
+      {user ? <NavBarLogedIn /> : <NavBarNoHover />}
       <div className="relative">
         <img
           src="/backgroundImages/hero-aboutus.jpg"
