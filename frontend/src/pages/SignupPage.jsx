@@ -1,5 +1,4 @@
-// import { useUserStore } from "../store/useStore";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { BackHome } from "../components/buttons/BackHome";
@@ -48,10 +47,6 @@ export const Signup = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-
-  // if (error) {
-  //   return <div>Error: {error}</div>;
-  // }
 
   return (
     <>
@@ -172,4 +167,3 @@ export const Signup = () => {
     </>
   );
 };
-//onClick={() => <Navigate to="/logged" />}
