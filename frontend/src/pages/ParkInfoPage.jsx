@@ -6,6 +6,7 @@ import { ParkImage } from "../components/parkComponents/ParkImage";
 import { BackBtn } from "../components/buttons/BackBtn";
 import {Line} from "../components/iconFolder/Line"
 import {TextRating} from "../components/parkComponents/ParkRate"
+import { Footer } from "../components/Footer"
 
 export const ParkInfoPage = () => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
@@ -106,7 +107,7 @@ export const ParkInfoPage = () => {
           />
         </div>
       </section>
-      
+    <Footer />
    </>
   );
 };

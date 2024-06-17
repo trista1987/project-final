@@ -61,12 +61,13 @@ export const ParkSlides = ({ nation }) => {
 
   return (
     <div className="flex flex-col md:pt-2 md:pb-[150px] lg:px-2 lg:pt-2 lg:pb-[150px]">
-      <div>
+      <div className="px-[25px]">
         <Line />
+        <h2 className="pb-[20px] lg:text-h2lg md:text-h2md sm:text-h2sm text-left text-fontColor pt-3">
+          Pick your next destination
+        </h2>
       </div>
-      <h2 className="pb-[20px] text-h2sm text-left text-fontColor pt-3">
-        Pick your next destination
-      </h2>
+
       <div className="flex flex-col sm:p-3 md:px-[30px] md:pb-[50px] lg:px-[30px] lg:pb-[80px]">
         <Carousel
           swipeable={true}
