@@ -8,10 +8,23 @@ import 'react-multi-carousel/lib/styles.css';
 import { Line } from "../iconFolder/Line";
 import Lottie from "lottie-react"
 import Loading from "../../assets/loading.json"
+import { useFavPark } from "../../contexts/FavParkContext";
+import {Heart} from "../iconFolder/Heart"
 
 
 export const ParkSlides = ({ nation }) => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
+  const {favourites, addToFavourites, removeFromFavourites} = useFavPark()
+  
+  const isFav = (parkId) => favourites.some((fav) => fav._id === parkId)
+
+  const handleToggleFavPark = (park) => {
+    if (isFav(park._id)) {
+      removeFromFavourites(park._id);
+    } else {
+      addToFavourites(park._id);
+    }
+  };
 
   useEffect(() => {
     fetchParkData(`https://parkhive.onrender.com/parks?nation=${nation}`);
@@ -113,6 +126,9 @@ export const ParkSlides = ({ nation }) => {
               <p className="sm:text-textsm md:text-textmd lg:text-textmd text-fontColor break-words text-center">
                 {park.introduction.slice(0, 80)}
               </p>
+              <button onClick={() => handleToggleFavPark(park)}>
+                {isFav(park._id) ? <Heart fill="#3B744E" /> : <Heart />}
+              </button>
             </div>
           ))}
         </Carousel>

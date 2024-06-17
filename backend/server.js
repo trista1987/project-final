@@ -45,7 +45,11 @@ const userSchema = new Schema({
   token: {
     type: String,
     default: () => bcrypt.genSaltSync()
-  }
+  },
+  favourites: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Park"
+  }]
 })
 //set model
 const Park = mongoose.model ("Park", parkSchema)
@@ -148,45 +152,6 @@ app.get("/parks/:id", async (req, res) => {
   }
 })
 
-// app.get("/parks/nation", async (req, res) => {
-//   try {
-//     const nationName = req.query.nation;
-//     if (!nationName) {
-//       return res.status(400).send("Nation name query parameter is required.");
-//     }
-
-//     const escapedNationName = escapeRegExp(nationName);
-//     const regex = new RegExp(escapedNationName, "i");
-
-//     const nationResult = await Park.find({ nation: regex });
-
-//     if (nationResult.length > 0) {
-//       res.json(nationResult);
-//     } else {
-//       res.status(404).send("No park data was found.");
-//     }
-//   } catch (err) {
-//     res.status(500).send("An error occurred while fetching park data.");
-//   }
-// });
-
-// app.get("/name", async (req, res) => {
-//   try {
-//     const parkName = req.query.name;
-//     // const escapeParkName = escapeRegExp(parkName);
-//     const regex = new RegExp(parkName, "i");
-//     const nameResult = await Park.find({ nation: regex });
-
-//     if (nameResult) {
-//       res.json(nameResult);
-//     } else {
-//       res.status(404).send("no park data was found.");
-//     }
-//   } catch (err) {
-//     res.status(500).send("An error occurred while fetching park data.");
-//   }
-// });
-
 //auth
 app.post("/register", (req,res) => {
   try{
@@ -251,6 +216,41 @@ app.get("/secrets", (req, res) => {
     secret: "This is secrets.",
   });
 });
+
+app.post ("/add-favourite", authenticateUser, async (req, res) => {
+  try {
+    const user = req.user
+    const parkId = req.body.parkId
+    user.favourites.push(parkId)
+    await user.save()
+    res.status(200).json({message: "park added to favourites"})
+  } catch (error) {
+    res.status(500).json({message: "Failed to add park to favourites", error})
+  } 
+})
+
+app.post ("/remove-favourite", authenticateUser, async (req, res) => {
+  try {
+    const user = req.user
+    const parkId = req.body.parkId
+    user.favourites.pull(parkId)
+    await user.save()
+    res.status(200).json({message: "park removed from favourites"})
+  } catch (error) {
+    res.status(500).json({message: "Failed to remove park to favourites", error})
+  }
+})
+
+app.get("/favourites", authenticateUser, async (req, res) => {
+  try {
+    const user = req.user
+    const favourites = await User.findById(user._id).populate("favourites").exec()
+    res.status(200).json(favourites)
+  } catch( error) {
+    es.status(500).json({ message: 'Failed to get favourites', error });
+  }
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
