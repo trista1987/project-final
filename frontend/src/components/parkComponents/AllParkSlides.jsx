@@ -5,6 +5,8 @@ import { ParkImage } from "./ParkImage";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Line } from "../iconFolder/Line";
+import Lottie from "lottie-react"
+import Loading from "../../assets/loading.json"
 
 export const AllParkSlides = () => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
@@ -15,7 +17,12 @@ export const AllParkSlides = () => {
   }, [fetchParkData]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (<div>
+      {loading && (<Lottie animationData={Loading}
+      loop={true} className="w-[300px] h-[300px]"
+      />)}
+    </div>
+    );
   }
 
   if (error) {

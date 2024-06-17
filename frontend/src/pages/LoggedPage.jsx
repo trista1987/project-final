@@ -3,9 +3,13 @@ import { Line } from "../components/iconFolder/Line";
 import { NavBarLogedIn } from "../components/NavBarLogedIn";
 import { useState, useEffect } from "react";
 
+import { ParkImage } from "../components/parkComponents/ParkImage";
+
+
 export const LoggedPage = () => {
   const [data, setData] = useState(null);
   const [status, setStatus] = useState(null);
+  const [favPark, setFavPark] = useState("")
   const emptyState = "./backgroundImages/hiking.jpg";
 
   useEffect(() => {
@@ -30,13 +34,40 @@ export const LoggedPage = () => {
         console.error("Fetch failed:", error);
       }
     };
-
     fetchData();
   }, []);
 
-  if (status === 401) {
-    alert ("Unauthorized")
+  useEffect(()=> {
+    const fetchFavPark = async () => {
+      try{
+        const token = localStorage.getItem("Net-Token")
+        const res = await fetch("https://parkhive.onrender.com/favourites",{
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${token}`
+          }
+        })
+        if(res.ok) {
+          const data = await res.json()
+          setFavPark(data.favourites)
+          console.log(data)
+        } else {
+          const errorData = await res.json()
+          console.error("Fetch error:", errorData.message || "Unknown error")
+        }
+      } catch(error) {
+        console.error("Fetch failed:", error)
+      }
+    }
+    fetchFavPark()
+  }, [])
+   
+  if(status === 401) {
+    return <p>Unauthorized</p>
   }
+
+
 
   return (
     <>
@@ -60,12 +91,30 @@ export const LoggedPage = () => {
           </div>
           <Line className="text-center" />
         </div>
-        <div className="flex justify-center items-center sm:py-[112px] sm:px-[100px]">
+        {/* <div className="flex justify-center items-center sm:py-[112px] sm:px-[100px]">
           <img
             src={emptyState}
             alt="hiking"
             className="sm:w-[265px] sm:h-[245px] w-[512px] h-[512px]"
           />
+        </div> */}
+        <div>
+        {Array.isArray(favPark) ? (
+            favPark.map((park) => (
+              <div key={park._id}>
+                <ParkImage name={park.name} alt={`${park.name}`} />
+                <h2>{park.name}</h2>
+              </div>
+            ))
+          ) : (
+            <div className="flex justify-center items-center sm:py-[112px] sm:px-[100px]">
+          <img
+            src={emptyState}
+            alt="hiking"
+            className="sm:w-[265px] sm:h-[245px] w-[512px] h-[512px]"
+          />
+        </div>
+          )}
         </div>
       </section>
       <Footer />
