@@ -1,4 +1,9 @@
-[ParkHive Cover Image](./parkHive-cover.png)
+<h1 align="center">
+  <a href="">
+    <img src="./parkHive-cover.png" alt="Project Banner Image">
+  </a>
+</h1>
+
 # Final Project
 
 ParkHive is a website about introducing national parks both in Finland and Sweden.  For nature lovers in Sweden and Finland to gather information about national parks. 
