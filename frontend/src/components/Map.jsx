@@ -19,7 +19,6 @@ export const Map = ({ position, parkName,className }) => {
       center={position}
       zoom={13}
       scrollWheelZoom={false}
-      icon={markIcon}
       // style={{ height: "100vh", width: "100%" }}
       className={`${className}`}
     >
@@ -27,7 +26,7 @@ export const Map = ({ position, parkName,className }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      <Marker position={position}>
+      <Marker position={position}  icon={markIcon}>
         <Popup>{parkName}</Popup>
       </Marker>
     </MapContainer>
