@@ -31,8 +31,8 @@ We also took inspiration from [Skåne](https://visitskane.com/).
 
 ## View it live
 
-[ParkHive Frontend Link](https://parkhive.netlify.app)
-[ParkHive Backend Link](https://parkhive.onrender.com)
+- [ParkHive Frontend Link](https://parkhive.netlify.app)
+- [ParkHive Backend Link](https://parkhive.onrender.com)
 
 ## Collabrators' portfolio
 - [Yia Tsai](https://yia-porfolio.netlify.app/)
