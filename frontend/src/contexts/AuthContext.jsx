@@ -22,6 +22,7 @@ export const AuthProvider = ({children}) => {
     const logout = () => {
         localStorage.removeItem("Net-Token")
         localStorage.removeItem("user")
+        localStorage.removeItem("favourites")
         setUser(null)
     }
 

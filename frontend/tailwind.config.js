@@ -57,7 +57,11 @@ export default {
       }
     },
   },
-  plugins: ["prettier-plugin-tailwindcss"],
+  plugins: 
+    ["prettier-plugin-tailwindcss",
+    "tailwindcss",
+    "autoprefixer"
+  ]
 };
 
 //h2 tablet font size: "h1sm"

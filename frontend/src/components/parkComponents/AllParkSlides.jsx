@@ -1,15 +1,20 @@
+/* eslint-disable no-console */
 import { useParkStore } from "../../store/useParkStore";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ParkImage } from "./ParkImage";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Line } from "../iconFolder/Line";
 import Lottie from "lottie-react"
 import Loading from "../../assets/loading.json"
+import { useFavPark } from "../../contexts/FavParkContext";
+import {Heart} from "../iconFolder/Heart"
 
 export const AllParkSlides = () => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
+  const { favourites, addToFavourites, removeFromFavourites} = useFavPark()
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchParkData(`https://parkhive.onrender.com/parks`);
@@ -24,6 +29,19 @@ export const AllParkSlides = () => {
     </div>
     );
   }
+
+  const isFav = (parkId) => favourites.some((fav) => fav._id === parkId)
+
+ const handleToggleBtn = (park,e) => {
+  e.preventDefault()
+  // if(!user) {
+  //   alert("You need to login first to add or remove parks.")
+  // }
+  if(isFav(park._id)) {
+    removeFromFavourites(park._id)
+  } else {
+    addToFavourites(park._id)}
+ }
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -56,17 +74,6 @@ export const AllParkSlides = () => {
       partialVisibilityGutter: 20,
     },
   };
-  //   const CustomDot= ({onClick, active}) => {
-  //     return (
-  //         <button className={` absolute w-3 h-3 rounded-full mx-1 focus:outline-none ${
-  //             active ? 'bg-green-500' : 'bg-gray-300'
-  //           }`}
-  //           onClick={onClick} />
-  //     )
-  // }
-
-  // const windowWidth = useWindowWidth();
-  // const showDots = windowWidth >= 744
 
   return (
     <div className="flex flex-col md:pt-2 md:pb-[150px] lg:px-2 lg:pt-2 lg:pb-[150px]">
@@ -97,21 +104,21 @@ export const AllParkSlides = () => {
           {parkData.map((park) => (
             <div
               key={park._id}
-              className="flex flex-col justify-center items-center sm:pb-[50px] md:max-w-[341px] gap-y-[20px] md:pb-[50px] md:pt-2"
+              className=" relative flex flex-col justify-center items-center sm:pb-[50px] md:max-w-[341px] gap-y-[20px] md:pb-[50px] md:pt-2"
             >
-              <Link
-                to={`/${park.nation}/${park.name
-                  .toLowerCase()
-                  .replace(/ /g, "-")}`}
-              >
+              <div className="relative">
                 <ParkImage
                   name={park.name}
                   alt={`${park.name}`}
+                  onclick={() => navigate(`/${park.nation}/${park.name.toLowerCase().replace(/ /g, "-")}`)}
                   className={
-                    "sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded"
+                    "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded"
                   }
                 />
-              </Link>
+                 <button onClick={(e)=> handleToggleBtn(park,e) } className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]">
+                  {isFav(park._id) ? <Heart fill={"#3B744E"} /> : <Heart />}
+                </button>
+              </div>
               <Link
                 to={`/${park.nation}/${park.name
                   .toLowerCase()
