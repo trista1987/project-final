@@ -10,6 +10,7 @@ export const LoggedPage = () => {
   const [data, setData] = useState(null);
   const [status, setStatus] = useState(null);
   const [favPark, setFavPark] = useState("")
+  const [selectedNation, setSelectedNation] = useState("All")
   const navigate = useNavigate()
   const emptyState = "./backgroundImages/hiking.jpg";
 
@@ -68,6 +69,8 @@ export const LoggedPage = () => {
     return <p>Unauthorized</p>
   }
 
+  const filteredParks = selectedNation === "All" ? favPark : favPark.filter((park) => park.nation === selectedNation)
+
   return (
     <>
       <section>
@@ -78,13 +81,13 @@ export const LoggedPage = () => {
           </h1>
           <div>{data}</div>
           <div className="flex flex-row sm:gap-x-[30px] sm:p-[30px]">
-            <button className="text-fontColor sm:text-textsm md:textmd lg:text-textmd">
+            <button onClick={()=>setSelectedNation("All")} className="text-fontColor sm:text-textsm md:textmd lg:text-textmd transition-transform duration-300 hover:scale-105">
               All
             </button>
-            <button className="text-fontColor sm:text-textsm md:textmd lg:text-textmd">
+            <button onClick={()=>setSelectedNation("Finland")} className="text-fontColor sm:text-textsm md:textmd lg:text-textmd transition-transform duration-300 hover:scale-105">
               Finland
             </button>
-            <button className="text-fontColor sm:text-textsm md:textmd lg:text-textmd">
+            <button onClick={()=>setSelectedNation("Sweden")} className="text-fontColor sm:text-textsm md:textmd lg:text-textmd transition-transform duration-300 hover:scale-105">
               Sweden
             </button>
           </div>
@@ -98,8 +101,8 @@ export const LoggedPage = () => {
           />
         </div> */}
         <div className="flex sm:flex-col sm:items-center md:flex-row md:flex-wrap md:justify-center">
-        {Array.isArray(favPark) ? (
-            favPark.map((park) => (
+        {Array.isArray(filteredParks) ? (
+            filteredParks.map((park) => (
               <div key={park._id} className="flex flex-col  items-center px-[13px] pt-[13px] gap-y-3 sm:w-[375px] sm:h-[418px] 
                md:w-[248px] md:h-[400px] lg:w-[413px] lg:h-[500px] ">
                 <ParkImage name={park.name} alt={`${park.name}`} 
