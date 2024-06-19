@@ -1,4 +1,3 @@
-
 import { Link, useLocation } from "react-router-dom";
 import { Contact } from "./Contact";
 import { LogoFullBlack } from "../components/iconFolder/LogoFullBlack";

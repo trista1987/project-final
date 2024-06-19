@@ -5,7 +5,7 @@ export const BackBtn = () => {
     const navigate = useNavigate()
 
     return (
-        <button onClick={()=>navigate(-1)} className="flex flex-row gap-2 p-3">
+        <button onClick={()=>navigate(-1)} className="flex flex-row gap-2 p-3 transition-transform duration-300 hover:scale-110">
             <BackArrow />
             <p className="text-textlg">Back</p>
         </button>

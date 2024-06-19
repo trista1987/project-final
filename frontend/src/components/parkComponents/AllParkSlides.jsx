@@ -112,7 +112,7 @@ export const AllParkSlides = () => {
                   alt={`${park.name}`}
                   onclick={() => navigate(`/${park.nation}/${park.name.toLowerCase().replace(/ /g, "-")}`)}
                   className={
-                    "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded"
+                    "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded transition-transform duration-300 hover:scale-105"
                   }
                 />
                  <button onClick={(e)=> handleToggleBtn(park,e) } className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]">

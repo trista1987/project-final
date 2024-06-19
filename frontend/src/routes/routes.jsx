@@ -1,4 +1,4 @@
-import { Route, Navigate } from "react-router-dom";
+import { Route} from "react-router-dom";
 import { HomePage } from "../pages/HomePage";
 import { Login } from "../pages/LoginPage";
 import { Signup } from "../pages/SignupPage";
@@ -10,12 +10,6 @@ import { ParkInfoPage } from "../pages/ParkInfoPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 
 
-// import { ProtectedRoute } from "./pages/ProtectedRoute";
-
-// const checkAuth = () => {
-//   return localStorage.getItem("Net-Token") != null;
-// };
-
 export const routes = (
   <>
     <Route path="/" element={<HomePage />} />
@@ -24,24 +18,8 @@ export const routes = (
     <Route path="/about" element={<AboutPage />} />
     <Route path="/signup" element={<Signup />} />
     <Route path="/login" element={<Login />} />
-    {/* <Route
-      path="/login"
-      element={checkAuth() ? <Navigate to="/logged" /> : <Login />}
-    />
-    <Route
-      path="/signup"
-      element={checkAuth() ? <Navigate to="/login" /> : <Signup />}
-    /> */}
     <Route path="/logged" element={<LoggedPage />} />
-
-    {/* <Route path="/logged" element={
-              <ProtectedRoute>
-                <LoggedPage />
-              </ProtectedRoute>
-            }/> */}
     <Route path="/:nation/:parkName" element={<ParkInfoPage />} />
     <Route path="*" element={<NotFoundPage />} />
   </>
 );
-
-//signup then link to login?

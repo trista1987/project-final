@@ -1,6 +1,6 @@
 # Frontend part of Final Project
 
-This boilerplate is designed to give you a head start in your React projects, with a focus on understanding the structure and components. As a student of Technigo, you'll find this guide helpful in navigating and utilizing the repository.
+[ParkHive]("https://parkhive.netlify.app/")
 
 ## Getting Started
 
@@ -21,3 +21,18 @@ During the process of our final project, it was fun to explore more libraries fo
 
 3. Map for each parks
 - Since Google map API is only for free 3 months, so we use [React Leaflet]('https://react-leaflet.js.org/') instead of using Google Map. 
+
+4. Carousel
+- We use [react-multi-carousel]("https://www.npmjs.com/package/react-multi-carousel") for displaying parks.
+
+5. Styling
+- Tailwind CSS
+
+6. Timezone
+- This website introduces parks from two countries: Finland and Sweden. [Moment Timezone]("https://momentjs.com/timezone/") has been used. 
+
+7. Animation
+- [LottieFiles]("https://lottiefiles.com/") when data is loading.
+
+8. Forms
+- Signup, login forms and parks' rating: [MUI]("https://mui.com/")

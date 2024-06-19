@@ -1,16 +1,15 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LogoFullBlack } from "./iconFolder/LogoFullBlack";
 import { Hamburger } from "./buttons/Hamburger";
 import { useAuthData } from "../contexts/AuthContext";
-import {useLocation} from "react-router-dom"
+import { useLocation } from "react-router-dom";
 
 export const NavBarLogedIn = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
-  const navigate = useNavigate();
-  const {logout} = useAuthData()
-  const location = useLocation()
+  const { logout } = useAuthData();
+  const location = useLocation();
 
   const links = [
     { to: "/", text: "Home" },

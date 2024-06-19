@@ -88,7 +88,7 @@ export const AboutPage = () => {
           devImage={"/developerImages/trista.jpg"}
           devName={"Trista"}
           developerName={"Trista Shan"}
-          devIntro={"Web Developer based in Helsinki, Finland"}
+          devIntro={"Web Developer with a healthcare background, driven by a passion for overcoming challenges and appreciating the beauty of nature's colorful creations. Based in Helsinki, Finland"}
           gitLink={"https://github.com/tristashan"}
           linkedinLink={"https://www.linkedin.com/in/trista-shan-62074471/"}
           portfolioLink={"https://trista-portfolio.netlify.app/"}

@@ -4,8 +4,10 @@ import { useParams, Link } from "react-router-dom";
 import { Map } from "../components/Map";
 import { ParkImage } from "../components/parkComponents/ParkImage";
 import { BackBtn } from "../components/buttons/BackBtn";
-import {Line} from "../components/iconFolder/Line"
-import {TextRating} from "../components/parkComponents/ParkRate"
+import { Line } from "../components/iconFolder/Line";
+import { TextRating } from "../components/parkComponents/ParkRate";
+import Lottie from "lottie-react"
+import Loading from "../assets/loading.json"
 
 export const ParkInfoPage = () => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
@@ -17,7 +19,12 @@ export const ParkInfoPage = () => {
   }, [fetchParkData]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (<div>
+      {loading && (<Lottie animationData={Loading}
+      loop={true} className="w-[300px] h-[300px]"
+      />)}
+    </div>
+    );
   }
 
   if (error) {
@@ -30,16 +37,16 @@ export const ParkInfoPage = () => {
   if (!parkInfo) {
     return (
       <>
-      <div>Park not found</div>
-      <Link to={"/"}>Back to home page</Link>
+        <div>Park not found</div>
+        <Link to={"/"}>Back to home page</Link>
       </>
-    )
+    );
   }
 
   return (
     <>
-    <section className="sm:p-2 md:p-[80px] lg:p-[100px]">
-        <div className=" ">
+      <section className="sm:p-2 md:p-[80px] lg:p-[100px]">
+        <div >
           <BackBtn />
         </div>
 
@@ -106,7 +113,6 @@ export const ParkInfoPage = () => {
           />
         </div>
       </section>
-      
-   </>
+    </>
   );
 };
