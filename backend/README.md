@@ -13,4 +13,4 @@ For login/sign up, we will try Passport if we have time before deadline.
 2.  Start the development server using `npm run dev`.
 
 ### Live
-[Park Hive API]('https://parkhive.onrender.com/')
+[ParkHive API]('https://parkhive.onrender.com/')
