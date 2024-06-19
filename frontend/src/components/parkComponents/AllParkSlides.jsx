@@ -7,9 +7,12 @@ import 'react-multi-carousel/lib/styles.css';
 import { Line } from "../iconFolder/Line";
 import Lottie from "lottie-react"
 import Loading from "../../assets/loading.json"
+import { useFavPark } from "../../contexts/FavParkContext";
+import {Heart} from "../iconFolder/Heart"
 
 export const AllParkSlides = () => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
+  const { favourites, addToFavourites, removeFromFavourites} = useFavPark()
 
   useEffect(() => {
     fetchParkData(`https://parkhive.onrender.com/parks`);
@@ -24,6 +27,15 @@ export const AllParkSlides = () => {
     </div>
     );
   }
+
+  const isFav = (parkId) => favourites.some((fav) => fav._id === parkId)
+
+ const handleToggleBtn = (park) => {
+  if(isFav(park._id)) {
+    removeFromFavourites(park._id)
+  } else {
+    addToFavourites(park._id)}
+ }
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -56,17 +68,6 @@ export const AllParkSlides = () => {
       partialVisibilityGutter: 20,
     },
   };
-  //   const CustomDot= ({onClick, active}) => {
-  //     return (
-  //         <button className={` absolute w-3 h-3 rounded-full mx-1 focus:outline-none ${
-  //             active ? 'bg-green-500' : 'bg-gray-300'
-  //           }`}
-  //           onClick={onClick} />
-  //     )
-  // }
-
-  // const windowWidth = useWindowWidth();
-  // const showDots = windowWidth >= 744
 
   return (
     <div className="flex flex-col md:pt-2 md:pb-[150px] lg:px-2 lg:pt-2 lg:pb-[150px]">
@@ -112,6 +113,11 @@ export const AllParkSlides = () => {
                   }
                 />
               </Link>
+              <div>
+                <button onClick={()=>handleToggleBtn(park)}>
+                  {isFav(park._id) ? <Heart fill={"#3B744E"} /> : <Heart />}
+                </button>
+              </div>
               <Link
                 to={`/${park.nation}/${park.name
                   .toLowerCase()
