@@ -106,7 +106,7 @@ export const AllParkSlides = () => {
                 <ParkImage
                   name={park.name}
                   alt={`${park.name}`}
-                  onClick={() => navigate(`/${park.nation}/${park.name.toLowerCase().replace(/ /g, "-")}`)}
+                  onclick={() => navigate(`/${park.nation}/${park.name.toLowerCase().replace(/ /g, "-")}`)}
                   className={
                     "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded"
                   }
