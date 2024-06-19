@@ -108,7 +108,7 @@ export const LoggedPage = () => {
                 <ParkImage name={park.name} alt={`${park.name}`} 
                 onclick={() => navigate(`/${park.nation}/${park.name.toLowerCase().replace(/ /g, "-")}`)} 
                 className={"sm:w-[349px] sm:h-[256px] md:w-[200px] md:h-[261px] lg:w-[352px] lg:h[342px] rounded "}/>
-                <h2 onClick={() => navigate(`/${park.nation}/${park.name.toLowerCase().replace(/ /g, "-")}`)} className="sm:text-h2sm md:text-textlg lg:text-h2sm text-center">{park.name}</h2>
+                <h2 onClick={() => navigate(`/${park.nation}/${park.name.toLowerCase().replace(/ /g, "-")}`)} className="sm:text-h2sm md:text-textlg lg:text-h2sm text-center text-fontColor">{park.name}</h2>
               </div>
             ))
           ) : (
