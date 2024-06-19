@@ -35,5 +35,5 @@ We also took inspiration from [Skåne](https://visitskane.com/).
 [ParkHive Backend Link](https://parkhive.onrender.com)
 
 ## Collabrators' portfolio
-[Yia Tsai](https://yia-porfolio.netlify.app/)
-[Trista Shan](https://trista-portfolio.netlify.app/)
+- [Yia Tsai](https://yia-porfolio.netlify.app/)
+- [Trista Shan](https://trista-portfolio.netlify.app/)
