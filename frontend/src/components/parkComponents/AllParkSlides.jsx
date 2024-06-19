@@ -1,6 +1,7 @@
+/* eslint-disable no-console */
 import { useParkStore } from "../../store/useParkStore";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ParkImage } from "./ParkImage";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -13,6 +14,7 @@ import {Heart} from "../iconFolder/Heart"
 export const AllParkSlides = () => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
   const { favourites, addToFavourites, removeFromFavourites} = useFavPark()
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchParkData(`https://parkhive.onrender.com/parks`);
@@ -98,23 +100,18 @@ export const AllParkSlides = () => {
           {parkData.map((park) => (
             <div
               key={park._id}
-              className="flex flex-col justify-center items-center sm:pb-[50px] md:max-w-[341px] gap-y-[20px] md:pb-[50px] md:pt-2"
+              className=" relative flex flex-col justify-center items-center sm:pb-[50px] md:max-w-[341px] gap-y-[20px] md:pb-[50px] md:pt-2"
             >
-              <Link
-                to={`/${park.nation}/${park.name
-                  .toLowerCase()
-                  .replace(/ /g, "-")}`}
-              >
+              <div className="relative">
                 <ParkImage
                   name={park.name}
                   alt={`${park.name}`}
+                  onClick={() => navigate(`/${park.nation}/${park.name.toLowerCase().replace(/ /g, "-")}`)}
                   className={
-                    "sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded"
+                    "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded"
                   }
                 />
-              </Link>
-              <div>
-                <button onClick={()=>handleToggleBtn(park)}>
+                 <button onClick={()=> handleToggleBtn(park) } className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]">
                   {isFav(park._id) ? <Heart fill={"#3B744E"} /> : <Heart />}
                 </button>
               </div>

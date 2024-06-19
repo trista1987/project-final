@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { useParkStore } from "../../store/useParkStore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { useEffect } from "react";
 import { ParkImage } from "./ParkImage";
 import Carousel from "react-multi-carousel";
@@ -15,6 +15,7 @@ import {Heart} from "../iconFolder/Heart"
 export const ParkSlides = ({ nation }) => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
   const {favourites, addToFavourites, removeFromFavourites} = useFavPark()
+  const navigate = useNavigate()
   
   const isFav = (parkId) => favourites.some((fav) => fav._id === parkId)
 
@@ -103,19 +104,19 @@ export const ParkSlides = ({ nation }) => {
               key={park._id}
               className="flex flex-col justify-center items-center sm:pb-[50px] md:max-w-[341px] gap-y-[20px] md:pb-[50px] md:pt-2"
             >
-              <Link
-                to={`/${park.nation}/${park.name
-                  .toLowerCase()
-                  .replace(/ /g, "-")}`}
-              >
+                  <div className="relative">
                 <ParkImage
                   name={park.name}
                   alt={`${park.name}`}
+                  onClick={() => navigate(`/${park.nation}/${park.name.toLowerCase().replace(/ /g, "-")}`)}
                   className={
-                    "sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded"
+                    "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded"
                   }
                 />
-              </Link>
+                 <button onClick={()=> handleToggleFavPark(park) } className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]">
+                  {isFav(park._id) ? <Heart fill={"#3B744E"} /> : <Heart />}
+                </button>
+              </div>
               <Link
                 to={`/${nation}/${park.name.toLowerCase().replace(/ /g, "-")}`}
               >
@@ -126,9 +127,6 @@ export const ParkSlides = ({ nation }) => {
               <p className="sm:text-textsm md:text-textmd lg:text-textmd text-fontColor break-words text-center">
                 {park.introduction.slice(0, 80)}
               </p>
-              <button onClick={() => handleToggleFavPark(park)}>
-                {isFav(park._id) ? <Heart fill="#3B744E" /> : <Heart />}
-              </button>
             </div>
           ))}
         </Carousel>
