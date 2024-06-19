@@ -19,7 +19,13 @@ export const ParkSlides = ({ nation }) => {
   
   const isFav = (parkId) => favourites.some((fav) => fav._id === parkId)
 
-  const handleToggleFavPark = (park) => {
+  const handleToggleFavPark = (park,e) => {
+    e.preventDefault();
+
+    // if(!user) {
+    //   alert("You need to login first to add or remove parks.")
+    // }
+
     if (isFav(park._id)) {
       removeFromFavourites(park._id);
     } else {
@@ -113,7 +119,7 @@ export const ParkSlides = ({ nation }) => {
                     "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded"
                   }
                 />
-                 <button onClick={()=> handleToggleFavPark(park) } className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]">
+                 <button onClick={(e)=> handleToggleFavPark(park, e) } className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]">
                   {isFav(park._id) ? <Heart fill={"#3B744E"} /> : <Heart />}
                 </button>
               </div>
