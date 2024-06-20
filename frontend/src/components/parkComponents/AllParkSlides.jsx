@@ -83,7 +83,7 @@ export const AllParkSlides = () => {
       <div>
         <Line />
       </div>
-      <h2 className="pb-[20px] text-h2sm text-left text-fontColor pt-3">
+      <h2 className="pb-[20px] lg:text-h2lg md:text-h2md sm:text-h2sm text-left text-fontColor pt-3">
         Pick your next destination
       </h2>
       <div className="flex flex-col sm:p-3 md:px-[30px] md:pb-[50px] lg:px-[30px] lg:pb-[80px]">
@@ -113,12 +113,21 @@ export const AllParkSlides = () => {
                 <ParkImage
                   name={park.name}
                   alt={`${park.name}`}
-                  onclick={() => navigate(`/${park.nation}/${park.name.toLowerCase().replace(/ /g, "-")}`)}
+                  onclick={() =>
+                    navigate(
+                      `/${park.nation}/${park.name
+                        .toLowerCase()
+                        .replace(/ /g, "-")}`
+                    )
+                  }
                   className={
                     "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded transition-transform duration-300 hover:scale-105"
                   }
                 />
-                 <button onClick={(e)=> handleToggleBtn(park,e) } className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]">
+                <button
+                  onClick={(e) => handleToggleBtn(park, e)}
+                  className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]"
+                >
                   {isFav(park._id) ? <Heart fill={"#3B744E"} /> : <Heart />}
                 </button>
               </div>

@@ -1,25 +1,24 @@
 /* eslint-disable no-console */
 import { useParkStore } from "../../store/useParkStore";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { ParkImage } from "./ParkImage";
 import Carousel from "react-multi-carousel";
-import 'react-multi-carousel/lib/styles.css';
+import "react-multi-carousel/lib/styles.css";
 import { Line } from "../iconFolder/Line";
-import Lottie from "lottie-react"
-import Loading from "../../assets/loading.json"
+import Lottie from "lottie-react";
+import Loading from "../../assets/loading.json";
 import { useFavPark } from "../../contexts/FavParkContext";
-import {Heart} from "../iconFolder/Heart"
-
+import { Heart } from "../iconFolder/Heart";
 
 export const ParkSlides = ({ nation }) => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
-  const {favourites, addToFavourites, removeFromFavourites} = useFavPark()
-  const navigate = useNavigate()
-  
-  const isFav = (parkId) => favourites.some((fav) => fav._id === parkId)
+  const { favourites, addToFavourites, removeFromFavourites } = useFavPark();
+  const navigate = useNavigate();
 
-  const handleToggleFavPark = (park,e) => {
+  const isFav = (parkId) => favourites.some((fav) => fav._id === parkId);
+
+  const handleToggleFavPark = (park, e) => {
     e.preventDefault();
 
     // if(!user) {
@@ -39,18 +38,23 @@ export const ParkSlides = ({ nation }) => {
   }, [fetchParkData, nation]);
 
   if (loading) {
-    return (<div>
-      {loading && (<Lottie animationData={Loading}
-      loop={true} className="w-[300px] h-[300px]"
-      />)}
-    </div>
+    return (
+      <div>
+        {loading && (
+          <Lottie
+            animationData={Loading}
+            loop={true}
+            className="w-[300px] h-[300px]"
+          />
+        )}
+      </div>
     );
   }
 
   if (error) {
     return <div>Error: {error}</div>;
   }
-  
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1440 },
@@ -58,7 +62,7 @@ export const ParkSlides = ({ nation }) => {
       partialVisibilityGutter: 40,
     },
     tablet: {
-      breakpoint: { max: 1440, min: 1220},
+      breakpoint: { max: 1440, min: 1220 },
       items: 4,
       partialVisibilityGutter: 40,
     },
@@ -82,11 +86,13 @@ export const ParkSlides = ({ nation }) => {
   return (
     <div className="flex flex-col md:pt-2 md:pb-[150px] lg:px-2 lg:pt-2 lg:pb-[150px]">
       <div>
-        <Line />
+        <div className="px-[25px]">
+          <Line />
+          <h2 className="pb-[20px] lg:text-h2lg md:text-h2md sm:text-h2sm text-left text-fontColor pt-3">
+            Pick your next destination
+          </h2>
+        </div>
       </div>
-      <h2 className="pb-[20px] text-h2sm text-left text-fontColor pt-3">
-        Pick your next destination
-      </h2>
       <div className="flex flex-col sm:p-3 md:px-[30px] md:pb-[50px] lg:px-[30px] lg:pb-[80px]">
         <Carousel
           swipeable={true}
@@ -110,16 +116,25 @@ export const ParkSlides = ({ nation }) => {
               key={park._id}
               className="flex flex-col justify-center items-center sm:pb-[50px] md:max-w-[341px] gap-y-[20px] md:pb-[50px] md:pt-2"
             >
-                  <div className="relative">
+              <div className="relative">
                 <ParkImage
                   name={park.name}
                   alt={`${park.name}`}
-                  onclick={() => navigate(`/${park.nation}/${park.name.toLowerCase().replace(/ /g, "-")}`)}
+                  onclick={() =>
+                    navigate(
+                      `/${park.nation}/${park.name
+                        .toLowerCase()
+                        .replace(/ /g, "-")}`
+                    )
+                  }
                   className={
                     "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded"
                   }
                 />
-                 <button onClick={(e)=> handleToggleFavPark(park, e) } className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]">
+                <button
+                  onClick={(e) => handleToggleFavPark(park, e)}
+                  className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]"
+                >
                   {isFav(park._id) ? <Heart fill={"#3B744E"} /> : <Heart />}
                 </button>
               </div>
