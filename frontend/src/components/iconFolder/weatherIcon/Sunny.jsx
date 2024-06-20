@@ -27,7 +27,7 @@ export const Sunny = ({ stroke = "#3B744E" }) => {
         stroke={stroke}
         strokeWidth="10.5474"
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
       <path
         d="M83.0153 83.0153L78.2559 78.2559"
