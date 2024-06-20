@@ -77,7 +77,9 @@ export const AboutPage = () => {
           devImage={"/developerImages/yia.png"}
           devName={"Yia"}
           developerName={"Yia Tsai"}
-          devIntro={"Frontend Developer based in Malmö, Sweden"}
+          devIntro={
+            "💻 Frontend Developer with the background in Marketing & SEO. Started the coding journey to become an unicorn that master all three areas. I am still on that long journey but having fun with it! \n 📍 Based in Malmö, Sweden. "
+          }
           gitLink={"https://github.com/Citronskal"}
           linkedinLink={"https://www.linkedin.com/in/yiatsai33/"}
           portfolioLink={"https://yia-porfolio.netlify.app/"}
@@ -88,7 +90,9 @@ export const AboutPage = () => {
           devImage={"/developerImages/trista.jpg"}
           devName={"Trista"}
           developerName={"Trista Shan"}
-          devIntro={"Web Developer with a healthcare background, driven by a passion for overcoming challenges and appreciating the beauty of nature's colorful creations. Based in Helsinki, Finland"}
+          devIntro={
+            "💻 Web Developer with a healthcare background, driven by a passion for overcoming challenges and appreciating the beauty of nature's colorful creations. \n 📍 Based in Helsinki, Finland"
+          }
           gitLink={"https://github.com/tristashan"}
           linkedinLink={"https://www.linkedin.com/in/trista-shan-62074471/"}
           portfolioLink={"https://trista-portfolio.netlify.app/"}

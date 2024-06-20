@@ -22,8 +22,13 @@ export const DevCard = ({
         <h4 className="lg:text-logoLg md:text-logoMd sm:text-logoSm font-semibold text-fontColor font-avenir text-center md:text-left">
           {developerName}
         </h4>
-        <p className="lg:text-textlg md:text-textmd sm:text-textsm font-normal text-fontColor w-full overflow-hidden text-ellipsis">
-          {devIntro}
+        <p className="lg:text-textlg md:text-textmd sm:text-textsm font-normal text-fontColor w-full">
+          {devIntro.split("\n").map((line, index) => (
+            <span key={index}>
+              {line}
+              <br />
+            </span>
+          ))}
         </p>
         <div className="flex justify-center md:justify-start space-x-4 mt-2 ">
           <a href={gitLink} className="text-fontColor hover:text-bg2">
