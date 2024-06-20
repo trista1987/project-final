@@ -54,7 +54,7 @@ export const Signup = () => {
         <div className="absolut bg-signup-image bg-cover bg-center right-0 top-0 object-cover sm:h-[180px] md:h-[315px] lg:h-[564px] w-full flex items-center justify-center">
           <BackHome
             className={
-              "text-fontColor flex flex-row gap-x-3 absolute left-[30px] top-[30px]"
+              "text-fontColor flex flex-row gap-x-3 absolute left-[30px] top-[30px] transition-transform duration-300 hover:scale-110"
             }
           />
         </div>
