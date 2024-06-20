@@ -1,5 +1,4 @@
 import React from "react";
-import { NavBar } from "./NavBar";
 import Pageheader from "./Pageheader.json";
 import { NavBarNoHover } from "./NavBarNoHover";
 import { useAuthData } from "../contexts/AuthContext";
