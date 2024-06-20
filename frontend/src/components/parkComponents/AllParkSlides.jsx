@@ -66,7 +66,7 @@ export const AllParkSlides = () => {
       <div>
         <Line />
       </div>
-      <h2 className="pb-[20px] text-h2sm text-left text-fontColor pt-3">
+      <h2 className="pb-[20px] lg:text-h2lg md:text-h2md sm:text-h2sm text-left text-fontColor pt-3">
         Pick your next destination
       </h2>
       <div className="flex flex-col sm:p-3 md:px-[30px] md:pb-[50px] lg:px-[30px] lg:pb-[80px]">
