@@ -52,8 +52,8 @@ export default {
       },
       gridTemplateRows: {
         "12": "repeat(12, minmax(0, 100px))",
-        "14": "repeat(14, minmax(0, 200px))",
-        "13": "repeat(11, minmax(0, 100px))"
+        "7": "repeat(7, minmax(0, 200px))",
+        "13": "repeat(9, minmax(0, 100px))"
       }
     },
   },

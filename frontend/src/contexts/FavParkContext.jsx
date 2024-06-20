@@ -1,6 +1,7 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { useAuthData } from "./AuthContext";
 
+
 const FavParkContext = createContext();
 
 export const FavParProvider = ({ children }) => {

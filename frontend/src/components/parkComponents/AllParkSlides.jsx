@@ -10,10 +10,12 @@ import Lottie from "lottie-react"
 import Loading from "../../assets/loading.json"
 import { useFavPark } from "../../contexts/FavParkContext";
 import {Heart} from "../iconFolder/Heart"
+import { useAuthData } from "../../contexts/AuthContext";
 
 export const AllParkSlides = () => {
   const { fetchParkData, parkData, loading, error } = useParkStore();
   const { favourites, addToFavourites, removeFromFavourites} = useFavPark()
+  const {user} = useAuthData()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -34,9 +36,10 @@ export const AllParkSlides = () => {
 
  const handleToggleBtn = (park,e) => {
   e.preventDefault()
-  // if(!user) {
-  //   alert("You need to login first to add or remove parks.")
-  // }
+  if(!user) {
+    navigate("/login")
+    return
+  }
   if(isFav(park._id)) {
     removeFromFavourites(park._id)
   } else {
