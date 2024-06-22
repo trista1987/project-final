@@ -5,9 +5,10 @@ export const ScrollToTop = () => {
     <div>
       <ScrollTop
         smooth
+        aria-label="Scroll to top of page"
         component={
-          <div>
-            <p className={`text-xl text-center`}>Top</p>
+          <div className="bg-gray-800 p-2 rounded-full">
+            <p className="text-xl text-center text-white">Top</p>
           </div>
         }
       />

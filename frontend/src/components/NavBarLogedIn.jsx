@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LogoFullBlack } from "./iconFolder/LogoFullBlack";
 import { Hamburger } from "./buttons/Hamburger";
 import { useAuthData } from "../contexts/AuthContext";
-import { useLocation } from "react-router-dom";
 
 export const NavBarLogedIn = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,14 +18,25 @@ export const NavBarLogedIn = () => {
   ];
 
   return (
-    <div className="bg-cardBg relative pt-3">
+    <header className="bg-cardBg relative pt-3" role="banner">
       <div className="max-w-7xl mx-auto px-[16px] sm:px-[24px] lg:px-[32px] flex justify-between items-center h-[55px] md:text-textmd sm:text-textsm">
         <div className="flex items-center">
-          <LogoFullBlack />
-          <button className="md:hidden ml-[200px]" onClick={toggleMenu}>
+          <Link to="/" aria-label="Homepage">
+            <LogoFullBlack />
+          </Link>
+          <button
+            className="md:hidden ml-[200px]"
+            onClick={toggleMenu}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation menu"
+          >
             <Hamburger />
           </button>
-          <nav className="hidden md:block ml-[40px] font-avenir">
+          <nav
+            className="hidden md:block ml-[40px] font-avenir"
+            aria-label="Main navigation"
+          >
             <ul className="flex space-x-[16px]">
               {links.map(({ to, text }) => (
                 <li key={to}>
@@ -46,6 +56,7 @@ export const NavBarLogedIn = () => {
             to="/"
             className="px-[15px] py-[7px] rounded-3xl border-2 border-fontColor text-sm font-medium text-fontColor font-avenir transition-transform duration-300 hover:scale-105"
             onClick={() => logout()}
+            aria-label="Log out of your account"
           >
             Logout
           </Link>
@@ -53,6 +64,7 @@ export const NavBarLogedIn = () => {
             <Link
               to="/logged"
               className="px-[10px] py-[5px] md:px-[12px] md:py-[5px] rounded-md text-sm font-medium text-fontColor font-avenir transition-transform duration-300 hover:scale-105"
+              aria-label="Go to your account"
             >
               MyAccount
             </Link>
@@ -64,8 +76,9 @@ export const NavBarLogedIn = () => {
         className={`md:hidden ${
           isOpen ? "block" : "hidden"
         } bg-cardBg shadow-md absolute w-full`}
+        id="mobile-menu"
       >
-        <nav>
+        <nav aria-label="Mobile navigation">
           <ul>
             {links.map(({ to, text }) => (
               <li key={to} className="text-left">
@@ -80,9 +93,13 @@ export const NavBarLogedIn = () => {
             ))}
             <li className="text-left">
               <Link
-                to="/login"
+                to="/"
                 className="px-[30px] py-[10px] text-sm font-medium font-avenir text-fontColor block"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  logout();
+                }}
+                aria-label="Log out of your account"
               >
                 Logout
               </Link>
@@ -93,6 +110,7 @@ export const NavBarLogedIn = () => {
                   to="/logged"
                   className="px-[30px] py-[10px] text-sm font-medium font-avenir text-fontColor block"
                   onClick={() => setIsOpen(false)}
+                  aria-label="Go to your account"
                 >
                   MyAccount
                 </Link>
@@ -101,6 +119,6 @@ export const NavBarLogedIn = () => {
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
   );
 };

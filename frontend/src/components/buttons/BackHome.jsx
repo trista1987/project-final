@@ -13,7 +13,11 @@ export const BackHome = ({ className }) => {
   }
 
   return (
-    <button onClick={() => navigate("/")} className={`${className}`}>
+    <button
+      onClick={() => navigate("/")}
+      className={`${className}`}
+      aria-label="Go back to home"
+    >
       <BackArrow fill={`${arrowColor}`} />
       <p className="text-textlg">Back to home</p>
     </button>
