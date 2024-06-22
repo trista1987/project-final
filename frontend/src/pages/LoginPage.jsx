@@ -1,6 +1,5 @@
 import { Footer } from "../components/Footer";
 import { BackHome } from "../components/buttons/BackHome";
-
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react"
 import Loading from "../assets/loading.json"
