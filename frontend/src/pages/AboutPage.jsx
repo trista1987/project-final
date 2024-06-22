@@ -1,19 +1,12 @@
 import { DevCard } from "../components/DevCard";
 import { Footer } from "../components/Footer";
 import { ScrollToTop } from "../components/buttons/ToTopBtn";
-import { Link } from "react-router-dom";
 import { NavBarNoHover } from "../components/NavBarNoHover";
 import { Line } from "../components/iconFolder/Line";
 import { useAuthData } from "../contexts/AuthContext";
 import {NavBarLogedIn} from "../components/NavBarLogedIn"
 
 export const AboutPage = () => {
-  const links = [
-    { to: "/", text: "Home" },
-    { to: "/finland", text: "Finland" },
-    { to: "/sweden", text: "Sweden" },
-    { to: "/about", text: "About us" },
-  ];
 
   const {user} = useAuthData()
 
