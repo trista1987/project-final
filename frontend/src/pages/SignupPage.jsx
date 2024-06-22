@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { BackHome } from "../components/buttons/BackHome";
 import { ColorCheckbox } from "../components/CheckBox";
+import { Link } from "react-router-dom";
 
 export const Signup = () => {
   const [name, setName] = useState("");

@@ -3,7 +3,7 @@ import { BackHome } from "../components/buttons/BackHome";
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react"
 import Loading from "../assets/loading.json"
-import {useState} from "react"
+import { useState } from "react"
 import { useAuthData } from "../contexts/AuthContext";
 
 export const Login = () => {

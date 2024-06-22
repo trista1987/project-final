@@ -15,12 +15,10 @@ export const NavBarNoHover = () => {
   ];
 
   return (
-    <header className="bg-cardBg relative" role="banner">
+    <div className="bg-cardBg relative">
       <div className="max-w-7xl mx-auto px-[16px] sm:px-[24px] lg:px-[32px] flex justify-between items-center h-[55px] md:text-textmd sm:text-textsm">
         <div className="flex items-center">
-          <Link to="/" aria-label="Homepage">
-            <LogoFullBlack />
-          </Link>
+          <LogoFullBlack />
           <button
             className="md:hidden ml-[200px]"
             onClick={toggleMenu}
@@ -70,9 +68,8 @@ export const NavBarNoHover = () => {
         className={`md:hidden ${
           isOpen ? "block" : "hidden"
         } bg-cardBg shadow-md absolute w-full`}
-        id="mobile-menu"
       >
-        <nav aria-label="Mobile navigation">
+        <nav>
           <ul>
             {links.map(({ to, text }) => (
               <li key={to} className="text-left">
@@ -108,6 +105,6 @@ export const NavBarNoHover = () => {
           </ul>
         </nav>
       </div>
-    </header>
+    </div>
   );
 };
