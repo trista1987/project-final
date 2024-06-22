@@ -16,6 +16,7 @@ export const HomePageSweden = () => {
         <img
           src={textImg}
           alt={textImgAlt}
+          loading="lazy"
           className="w-full h-full object-cover"
         />
       </div>
