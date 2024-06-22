@@ -66,8 +66,14 @@ export const Signup = () => {
           <form
             onSubmit={handleSubmit}
             className="border-2 rounded-[30px] flex flex-col gap-y-[30px] sm:w-[390px] md:w-[834px] lg:w-[834px] items-center sm:py-[40px]"
+            aria-labelledby="signup-form"
           >
             <h2 className="sm:text-h2sm md:text-h2lg lg:text-h2lg">Sign up</h2>
+            {error && (
+              <div role="alert" className="text-red-600">
+                {error}
+              </div>
+            )}
             <div className="flex flex-col">
               <label
                 htmlFor="name"
@@ -83,12 +89,14 @@ export const Signup = () => {
                 placeholder="name"
                 required
                 className="border-2 rounded sm:w-[243px] sm:h-[43px] md:w-[300px] md:h-[40px] lg:w-[300px] lg:h-[40px]"
+                aria-required="true"
               />
             </div>
             <div className="flex flex-col">
               <label
                 htmlFor="email"
-                className="text-fontColor sm:text-h2sm sm:pb-2 lg:text-h2md "
+                className="text-fontColor sm:text-h2sm sm:pb-2 lg:text-h2md"
+                aria-required="true"
               >
                 Email：
               </label>
@@ -100,6 +108,7 @@ export const Signup = () => {
                 placeholder="name@gmail.com"
                 required
                 className="border-2 rounded sm:w-[243px] sm:h-[43px] md:w-[300px] md:h-[40px] lg:w-[300px] lg:h-[40px]"
+                aria-required="true"
               />
             </div>
             <div className="flex flex-col">
@@ -117,6 +126,7 @@ export const Signup = () => {
                 placeholder="********"
                 required
                 className="border-2 rounded sm:w-[243px] sm:h-[43px] md:w-[300px] md:h-[40px] lg:w-[300px] lg:h-[40px]"
+                aria-required="true"
               />
             </div>
             <div className="flex flex-col">
@@ -134,6 +144,7 @@ export const Signup = () => {
                 placeholder="********"
                 required
                 className="border-2 rounded sm:w-[243px] sm:h-[43px] md:w-[300px] md:h-[40px] lg:w-[300px] lg:h-[40px]"
+                aria-required="true"
               />
             </div>
             <div className="flex flex-row ">
