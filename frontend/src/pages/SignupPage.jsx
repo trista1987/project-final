@@ -69,11 +69,7 @@ export const Signup = () => {
             aria-labelledby="signup-form"
           >
             <h2 className="sm:text-h2sm md:text-h2lg lg:text-h2lg">Sign up</h2>
-            {error && (
-              <div role="alert" className="text-red-600">
-                {error}
-              </div>
-            )}
+
             <div className="flex flex-col">
               <label
                 htmlFor="name"
