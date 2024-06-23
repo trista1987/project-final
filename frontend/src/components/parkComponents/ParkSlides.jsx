@@ -128,7 +128,7 @@ export const ParkSlides = ({ nation }) => {
                     )
                   }
                   className={
-                    "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded"
+                    "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded transition-transform duration-300 hover:scale-105"
                   }
                 />
                 <button
