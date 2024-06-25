@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { useParkStore } from "../../store/useParkStore";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -20,11 +19,6 @@ export const ParkSlides = ({ nation }) => {
 
   const handleToggleFavPark = (park, e) => {
     e.preventDefault();
-
-    // if(!user) {
-    //   alert("You need to login first to add or remove parks.")
-    // }
-
     if (isFav(park._id)) {
       removeFromFavourites(park._id);
     } else {
@@ -39,7 +33,11 @@ export const ParkSlides = ({ nation }) => {
 
   if (loading) {
     return (
-      <div>
+      <div
+        className="flex justify-center items-center h-screen"
+        role="status"
+        aria-label="Loading"
+      >
         {loading && (
           <Lottie
             animationData={Loading}
@@ -52,7 +50,17 @@ export const ParkSlides = ({ nation }) => {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <div
+        className="flex flex-col justify-center items-center h-screen"
+        role="alert"
+      >
+        <p>Error: {error}</p>
+        <Link to="/" className="text-blue-500 underline">
+          Back to home page
+        </Link>
+      </div>
+    );
   }
 
   const responsive = {
@@ -110,42 +118,60 @@ export const ParkSlides = ({ nation }) => {
           dotListClass="custom-dot-list-style"
           itemClass="px-3"
           showDots={true}
+          aria-label="Park carousel"
         >
-          {parkData.map((park) => (
+          {parkData.map((park, index) => (
             <div
               key={park._id}
               className="flex flex-col justify-center items-center sm:pb-[50px] md:max-w-[341px] gap-y-[20px] md:pb-[50px] md:pt-2"
+              role="group"
+              aria-labelledby={`park-${park._id}-name`}
+              aria-describedby={`park-${park._id}-description`}
+              aria-hidden={index >= responsive.mobile.items ? "true" : "false"} // Adjust based on visibility
+              tabIndex={index >= responsive.mobile.items ? -1 : 0}
             >
               <div className="relative">
                 <ParkImage
                   name={park.name}
-                  alt={`${park.name}`}
-                  onclick={() =>
+                  alt={`Image of ${park.name}`}
+                  onClick={() =>
                     navigate(
                       `/${park.nation}/${park.name
                         .toLowerCase()
                         .replace(/ /g, "-")}`
                     )
                   }
-                  className={
-                    "relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px]  object-cover rounded transition-transform duration-300 hover:scale-105"
-                  }
+                  className="relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px] object-cover rounded transition-transform duration-300 hover:scale-105"
                 />
                 <button
                   onClick={(e) => handleToggleFavPark(park, e)}
-                  className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]"
+                  className="absolute flex justify-center items-center bg-bg1 w-[44px] h-[44px] rounded-tl rounded-br right-[0px] bottom-[0px]" // Increased size for better touch target
+                  aria-label={
+                    isFav(park._id)
+                      ? `Remove ${park.name} from favourites`
+                      : `Add ${park.name} to favourites`
+                  }
+                  tabIndex={index >= responsive.mobile.items ? -1 : 0}
                 >
                   {isFav(park._id) ? <Heart fill={"#3B744E"} /> : <Heart />}
                 </button>
               </div>
               <Link
                 to={`/${nation}/${park.name.toLowerCase().replace(/ /g, "-")}`}
+                id={`park-${park._id}-name`}
+                aria-label={`View details of ${park.name}`}
+                tabIndex={index >= responsive.mobile.items ? -1 : 0}
+                className="block w-full" // Ensuring the link spans the full width for better touch target
               >
                 <h3 className="text-textlg md:text-xl text-fontColor">
                   {park.name}
                 </h3>
               </Link>
-              <p className="sm:text-textsm md:text-textmd lg:text-textmd text-fontColor break-words text-center">
+              <p
+                id={`park-${park._id}-description`}
+                className="sm:text-textsm md:text-textmd lg:text-textmd text-fontColor break-words text-center"
+                tabIndex={index >= responsive.mobile.items ? -1 : 0}
+              >
                 {park.introduction.slice(0, 80)}
               </p>
             </div>

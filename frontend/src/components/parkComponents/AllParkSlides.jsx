@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
-import { useParkStore } from "../../store/useParkStore";
 import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { useParkStore } from "../../store/useParkStore";
 import { ParkImage } from "./ParkImage";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -23,6 +22,21 @@ export const AllParkSlides = () => {
     console.log(parkData);
   }, [fetchParkData]);
 
+  const isFav = (parkId) => favourites.some((fav) => fav._id === parkId);
+
+  const handleToggleBtn = (park, e) => {
+    e.preventDefault();
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+    if (isFav(park._id)) {
+      removeFromFavourites(park._id);
+    } else {
+      addToFavourites(park._id);
+    }
+  };
+
   if (loading) {
     return (
       <div
@@ -40,21 +54,6 @@ export const AllParkSlides = () => {
       </div>
     );
   }
-
-  const isFav = (parkId) => favourites.some((fav) => fav._id === parkId);
-
-  const handleToggleBtn = (park, e) => {
-    e.preventDefault();
-    if (!user) {
-      navigate("/login");
-      return;
-    }
-    if (isFav(park._id)) {
-      removeFromFavourites(park._id);
-    } else {
-      addToFavourites(park._id);
-    }
-  };
 
   if (error) {
     return (
@@ -125,15 +124,17 @@ export const AllParkSlides = () => {
           showDots={true}
           aria-label="Park carousel"
         >
-          {parkData.map((park) => (
+          {parkData.map((park, index) => (
             <div
               key={park._id}
               className="relative flex flex-col justify-center items-center sm:pb-[50px] md:max-w-[341px] gap-y-[20px] md:pb-[50px] md:pt-2"
               role="group"
               aria-labelledby={`park-${park._id}-name`}
               aria-describedby={`park-${park._id}-description`}
+              aria-hidden={index >= responsive.mobile.items ? "true" : "false"} // Adjust based on visibility
+              tabIndex={index >= responsive.mobile.items ? -1 : 0}
             >
-              <div className="relative">
+              <div className="relative group">
                 <ParkImage
                   name={park.name}
                   alt={`Image of ${park.name}`}
@@ -144,16 +145,17 @@ export const AllParkSlides = () => {
                         .replace(/ /g, "-")}`
                     )
                   }
-                  className="relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px] object-cover rounded transition-transform duration-300 hover:scale-105"
+                  className="relative sm:w-[325px] sm:h-[418px] md:w-[250px] md:h-[261px] object-cover rounded transition-transform duration-300 group-hover:scale-105"
                 />
                 <button
                   onClick={(e) => handleToggleBtn(park, e)}
-                  className="absolute flex justify-center items-center bg-bg1 w-[30px] h-[30px] rounded-tl rounded-br right-[0px] bottom-[0px]"
+                  className="absolute flex justify-center items-center bg-bg1 w-[44px] h-[44px] rounded-tl rounded-br right-[0px] bottom-[0px] transition-transform duration-300 group-hover:scale-105"
                   aria-label={
                     isFav(park._id)
                       ? `Remove ${park.name} from favourites`
                       : `Add ${park.name} to favourites`
                   }
+                  tabIndex={index >= responsive.mobile.items ? -1 : 0}
                 >
                   {isFav(park._id) ? <Heart fill={"#3B744E"} /> : <Heart />}
                 </button>
@@ -164,6 +166,8 @@ export const AllParkSlides = () => {
                   .replace(/ /g, "-")}`}
                 id={`park-${park._id}-name`}
                 aria-label={`View details of ${park.name}`}
+                tabIndex={index >= responsive.mobile.items ? -1 : 0}
+                className="block w-full"
               >
                 <h3 className="text-textlg md:text-xl text-fontColor">
                   {park.name}
@@ -172,6 +176,7 @@ export const AllParkSlides = () => {
               <p
                 id={`park-${park._id}-description`}
                 className="sm:text-textsm md:text-textmd lg:text-textmd text-fontColor break-words text-center"
+                tabIndex={index >= responsive.mobile.items ? -1 : 0}
               >
                 {park.introduction.slice(0, 80)}
               </p>
