@@ -168,7 +168,7 @@ export const AllParkSlides = () => {
                 tabIndex={index >= responsive.mobile.items ? -1 : 0}
                 className="block w-full"
               >
-                <h3 className="text-textlg md:text-xl text-fontColor">
+                <h3 className="text-textlg md:text-xl text-center text-fontColor">
                   {park.name}
                 </h3>
               </Link>

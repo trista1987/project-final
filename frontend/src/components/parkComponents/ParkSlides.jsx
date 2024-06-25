@@ -162,7 +162,7 @@ export const ParkSlides = ({ nation }) => {
                 tabIndex={index >= responsive.mobile.items ? -1 : 0}
                 className="block w-full" // Ensuring the link spans the full width for better touch target
               >
-                <h3 className="text-textlg md:text-xl text-fontColor">
+                <h3 className="text-textlg md:text-xl text-center text-fontColor">
                   {park.name}
                 </h3>
               </Link>
