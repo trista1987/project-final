@@ -130,7 +130,7 @@ export const AllParkSlides = () => {
               role="group"
               aria-labelledby={`park-${park._id}-name`}
               aria-describedby={`park-${park._id}-description`}
-              aria-hidden={index >= responsive.mobile.items ? "true" : "false"} // Adjust based on visibility
+              aria-hidden={index >= responsive.mobile.items ? "true" : "false"} 
               tabIndex={index >= responsive.mobile.items ? -1 : 0}
             >
               <div className="relative group">
