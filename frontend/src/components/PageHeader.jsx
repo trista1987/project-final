@@ -9,10 +9,6 @@ export const PageHeader = ({ placeName }) => {
   const imageUrl = header ? header.imageUrl : "default-image.jpg";
   const { user } = useAuthData();
 
-  // Add debug logs
-  console.log("placeName:", placeName);
-  console.log("header:", header);
-  console.log("imageUrl:", imageUrl);
   return (
     <>
       {user ? <NavBarLogedIn /> : <NavBarNoHover />}

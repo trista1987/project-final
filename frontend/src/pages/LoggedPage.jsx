@@ -93,13 +93,6 @@ export const LoggedPage = () => {
           </div>
           <Line className="text-center" />
         </div>
-        {/* <div className="flex justify-center items-center sm:py-[112px] sm:px-[100px]">
-          <img
-            src={emptyState}
-            alt="hiking"
-            className="sm:w-[265px] sm:h-[245px] w-[512px] h-[512px]"
-          />
-        </div> */}
         <div className="flex sm:flex-col sm:items-center md:flex-row md:flex-wrap md:justify-center">
         {Array.isArray(filteredParks) ? (
             filteredParks.map((park) => (

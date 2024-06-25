@@ -19,7 +19,6 @@ export const AllParkSlides = () => {
 
   useEffect(() => {
     fetchParkData(`https://parkhive.onrender.com/parks`);
-    console.log(parkData);
   }, [fetchParkData]);
 
   const isFav = (parkId) => favourites.some((fav) => fav._id === parkId);

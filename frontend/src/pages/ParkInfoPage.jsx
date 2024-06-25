@@ -15,7 +15,6 @@ export const ParkInfoPage = () => {
 
   useEffect(() => {
     fetchParkData(`https://parkhive.onrender.com/parks`);
-    console.log(parkData);
   }, [fetchParkData]);
 
   if (loading) {

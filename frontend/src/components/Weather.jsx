@@ -13,7 +13,6 @@ export const Weather = ({ city, timezone, className }) => {
   const BASE_URL1 = "weather";
   const apiENV = import.meta.env.VITE_OPENWEATHER_KEY
   const URL1 = `${BASE_URL}${BASE_URL1}?q=${city}&units=metric&appid=${apiENV}`;
-  console.log(import.meta.env.VITE_OPENWEATHER_KEY)
 
   const location = useLocation();
 
@@ -23,7 +22,6 @@ export const Weather = ({ city, timezone, className }) => {
         const res = await fetch(URL1);
         const data = await res.json();
         setWeather(data);
-        console.log(data);
       } catch (err) {
         console.error("Error fetching the weather data:", err);
       } finally {

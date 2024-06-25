@@ -23,7 +23,3 @@ export const useParkStore = create ((set) => ({
         }
     }
 }))
-
-//fetch parks two places:
-//1. one in each country -> slides
-//2. one in each parks 

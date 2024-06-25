@@ -28,7 +28,6 @@ export const ParkSlides = ({ nation }) => {
 
   useEffect(() => {
     fetchParkData(`https://parkhive.onrender.com/parks?nation=${nation}`);
-    console.log(parkData);
   }, [fetchParkData, nation]);
 
   if (loading) {
