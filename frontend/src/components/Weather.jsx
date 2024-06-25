@@ -14,6 +14,7 @@ export const Weather = ({ city, timezone, className }) => {
   const apiENV = import.meta.env.VITE_OPENWEATHER_KEY
   // const API_KEY = "0a3f5beba05e6db2d5da18ddf3283c92";
   const URL1 = `${BASE_URL}${BASE_URL1}?q=${city}&units=metric&appid=${apiENV}`;
+  console.log(import.meta.env.VITE_OPENWEATHER_KEY)
 
   const location = useLocation();
 
